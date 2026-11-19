@@ -19,7 +19,7 @@ python -m reproduction.demo.serve --weights release_assets --port 7860
 
 ## 实验复核
 
-训练使用 SD1.4 和 BigGAN；未见来源包括 ADM、GLIDE、SD1.5、VQDM 和 Midjourney。权重清单按方法与 seed 区分，原始 checkpoint 的选择规则、阈值、哈希见 [P3_FROZEN.json](reproduction/proposal/P3_FROZEN.json)。训练和完整评测脚本沿用原机绝对路径，迁移环境时需按清单准备 GenImage 数据、依赖上游源码及路径映射。仓库包含数据划分清单，不分发 GenImage 原图。预训练骨干来自 openai/clip-vit-large-patch14，版本和来源见 [weights.lock.json](reproduction/weights.lock.json)。
+训练使用 SD1.4 和 BigGAN；未见来源包括 ADM、GLIDE、SD1.5、VQDM 和 Midjourney。权重清单按方法与 seed 区分，原始 checkpoint 的选择规则、阈值、哈希见 [P3_FROZEN.json](reproduction/proposal/P3_FROZEN.json)。Release 附件 `p3-predictions.tar.gz` 包含原始 P3 与五源补测的逐图预测及校验收据，可用同一 Release 的 SHA256SUMS 校验。训练和完整评测脚本沿用原机绝对路径，迁移环境时需按清单准备 GenImage 数据、依赖上游源码及路径映射。仓库包含数据划分清单，不分发 GenImage 原图。预训练骨干来自 openai/clip-vit-large-patch14，版本和来源见 [weights.lock.json](reproduction/weights.lock.json)。
 
 ## 研究记录
 
