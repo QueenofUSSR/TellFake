@@ -15,7 +15,7 @@ python scripts/download_release_models.py
 python -m reproduction.demo.serve --weights release_assets --port 7860
 ```
 
-浏览器打开 http://127.0.0.1:7860/，选择 JPEG 或 PNG。默认下载约 1.71 GB，包含冻结的 CLIP ViT-L/14 与 seed 42 分类器。运行 `python scripts/download_release_models.py --all` 可下载全部 13 个正式模型及共享骨干（约 10.16 GB）。每个文件均按 SHA-256 校验。只加载来自可信来源的 pickle 或 PyTorch checkpoint。
+浏览器打开 http://127.0.0.1:7860/，选择 JPEG 或 PNG。默认下载约 1.71 GB，包含冻结的 CLIP ViT-L/14 与 seed 42 分类器。运行 `python scripts/download_release_models.py --all` 可下载全部 13 个正式模型及共享骨干（约 10.16 GB）。大型权重以 128 MiB 分片存储。下载脚本逐片校验、自动合并并核对完整权重的 SHA-256，中断后可复用已校验的分片。只加载来自可信来源的 pickle 或 PyTorch checkpoint。
 
 ## 实验复核
 

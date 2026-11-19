@@ -19,6 +19,23 @@ def valid(path, asset):
         return hashlib.file_digest(stream, 'sha256').hexdigest() == asset['sha256']
 
 
+def download(file, dest, base_url):
+    path = dest / file['name']
+    if valid(path, file):
+        return path
+    with tempfile.NamedTemporaryFile(dir=dest, delete=False) as handle:
+        tmp = Path(handle.name)
+    try:
+        with urlopen(base_url + file['name'], timeout=120) as stream, tmp.open('wb') as handle:
+            shutil.copyfileobj(stream, handle)
+        if not valid(tmp, file):
+            raise ValueError(f"Checksum mismatch: {file['name']}")
+        os.replace(tmp, path)
+    finally:
+        tmp.unlink(missing_ok=True)
+    return path
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--all', action='store_true', help='include all thirteen frozen models')
@@ -34,15 +51,23 @@ def main():
         if valid(path, asset):
             print('Verified', name)
             continue
-        url = f"https://github.com/QueenofUSSR/TellFake/releases/download/{manifest['tag']}/{name}"
+        base_url = f"https://github.com/QueenofUSSR/TellFake/releases/download/{manifest['tag']}/"
+        if 'parts' not in asset:
+            download(asset, dest, base_url)
+            continue
+        chunks = [download(part, dest, base_url) for part in asset['parts']]
         with tempfile.NamedTemporaryFile(dir=dest, delete=False) as f:
             tmp = Path(f.name)
         try:
-            with urlopen(url, timeout=120) as stream, tmp.open('wb') as f:
-                shutil.copyfileobj(stream, f)
+            with tmp.open('wb') as f:
+                for chunk in chunks:
+                    with chunk.open('rb') as stream:
+                        shutil.copyfileobj(stream, f)
             if not valid(tmp, asset):
                 raise ValueError(f'Checksum mismatch: {name}')
             os.replace(tmp, path)
+            for chunk in chunks:
+                chunk.unlink()
             print('Downloaded', name)
         finally:
             tmp.unlink(missing_ok=True)
