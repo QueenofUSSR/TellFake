@@ -1,0 +1,26 @@
+[
+  {
+    "name": "ARIN5201_CV_Project",
+    "url": "https://github.com/Thomasliu04/ARIN5201_CV_Project.git",
+    "commit": "13d741b8cac51685b68cd396583408a75ed157d0",
+    "local_path": "/mnt/ssd/data/reviews/arin5201_20261113/ARIN5201_CV_Project",
+    "workspace_path": "/mnt/ssd/code/arin5201/third_party/ARIN5201_CV_Project",
+    "clean": true
+  },
+  {
+    "name": "ARIN5201-AIGI-Detection",
+    "url": "https://github.com/mixinran/ARIN5201-AIGI-Detection.git",
+    "commit": "0df86dad7c32b204d6e16e96b1b2fd5864de9ebb",
+    "local_path": "/mnt/ssd/data/reviews/arin5201_20261113/ARIN5201-AIGI-Detection",
+    "workspace_path": "/mnt/ssd/code/arin5201/third_party/ARIN5201-AIGI-Detection",
+    "clean": true
+  },
+  {
+    "name": "clip_dual_aigi",
+    "url": "https://github.com/xhgSh/clip_dual_aigi.git",
+    "commit": "016a14d5a68e24666d907e1564d427bc7f7d995a",
+    "local_path": "/mnt/ssd/data/reviews/arin5201_20261113/clip_dual_aigi",
+    "workspace_path": "/mnt/ssd/code/arin5201/third_party/clip_dual_aigi",
+    "clean": true
+  }
+]

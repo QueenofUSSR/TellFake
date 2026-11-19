@@ -1,0 +1,125 @@
+--- a/dataset.py
++++ b/dataset.py
+@@ -25,66 +25,38 @@
+ 
+ 
+ def build_rows(data_root, generator, split):
+-    """nature=0 (real), ai=1 (fake). If val empty, fall back to train."""
+-    root = Path(data_root) / generator
+-    rows = []
+-    for label, folder in [(0, 'nature'), (1, 'ai')]:
+-        paths = list_images(root / split / folder)
+-        if not paths and split == 'val':
+-            paths = list_images(root / 'train' / folder)
+-        for path in paths:
+-            rows.append({
+-                'path': str(path.resolve()),
+-                'label': label,
+-                'generator': generator,
+-                'split': split,
+-            })
++    """Strict legacy reader; missing labels/splits are errors, never fallback."""
++    rows=[]
++    for label,folder in [(0,'nature'),(1,'ai')]:
++        paths=list_images(Path(data_root)/generator/split/folder)
++        if not paths: raise FileNotFoundError(f'Missing {generator}/{split}/{folder}')
++        rows.extend(dict(path=str(p.resolve()),label=label,generator=generator,split=split) for p in paths)
+     return rows
+ 
+ 
+ def prepare_manifests(cfg):
+-    """Train/val = SDv1.4; test = each listed generator's val (skip if missing)."""
+-    root = Path(cfg['data_root'])
+-    out = Path(cfg['manifest_dir'])
+-    out.mkdir(parents=True, exist_ok=True)
+-    train_g = cfg['train_generator']
+-    train_rows = build_rows(root, train_g, 'train')
+-    val_rows = build_rows(root, train_g, 'val')
+-    if not train_rows:
+-        raise FileNotFoundError(f'No train images under {root / train_g / "train"}')
+-    if not val_rows:
+-        raise FileNotFoundError(f'No val images under {root / train_g / "val"}')
+-
+-    def write(name, rows):
+-        path = out / name
+-        with path.open('w', encoding='utf-8', newline='') as f:
+-            writer = csv.DictWriter(f, fieldnames=['path', 'label', 'generator', 'split'])
+-            writer.writeheader()
+-            writer.writerows(rows)
+-
+-    write('train.csv', train_rows)
+-    write('val.csv', val_rows)
+-    available, missing = [], []
+-    for g in cfg['test_generators']:
+-        rows = build_rows(root, g, 'val')
+-        if rows:
+-            write(f'test_{safe_name(g)}.csv', rows)
+-            available.append(g)
+-        else:
+-            missing.append(g)
+-    summary = {
+-        'train_generator': train_g,
+-        'train_n': len(train_rows),
+-        'val_n': len(val_rows),
+-        'available_test': available,
+-        'missing_test': missing,
+-        'train_real': sum(r['label'] == 0 for r in train_rows),
+-        'train_fake': sum(r['label'] == 1 for r in train_rows),
+-    }
+-    (out / 'summary.txt').write_text(
+-        '\n'.join(f'{k}: {v}' for k, v in summary.items()) + '\n', encoding='utf-8')
+-    print(summary, flush=True)
+-    return summary
++    """Consume externally audited manifests only; never regenerate a data split."""
++    from reproduction.protocol import read_manifest, assert_disjoint
++    source=Path(cfg['frozen_manifest_dir']);out=Path(cfg['manifest_dir'])
++    if out.resolve()==source.resolve(): raise ValueError('Do not overwrite frozen manifests')
++    train=read_manifest(source/(cfg['train_manifest']+'.csv'))
++    val=read_manifest(source/(cfg.get('val_manifest','val')+'.csv'))
++    assert_disjoint(train,val)
++    if any(r['source_split']!='train' for r in train+val): raise ValueError('Model selection requires official train')
++    # Final test loading is explicitly opt-in, separate from model selection.
++    tests={}
++    if cfg.get('evaluate_final',False):
++        real=read_manifest(source/'test_real.csv')
++        for g in cfg['test_generators']:
++            tests[g]=real+read_manifest(source/('test_'+g+'.csv'))
++            assert_disjoint(train,val,tests[g])
++    out.mkdir(parents=True,exist_ok=True)
++    def write(name,rows):
++        with (out/name).open('w',newline='') as f:
++            w=csv.DictWriter(f,fieldnames=['path','label','generator','split'],extrasaction='ignore');w.writeheader();w.writerows(rows)
++    write('train.csv',train);write('val.csv',val)
++    for g,rows in tests.items():write('test_'+safe_name(g)+'.csv',rows)
++    return dict(train_n=len(train),val_n=len(val),available_test=list(tests),missing_test=[])
+ 
+ 
+ def train_transform(load_size=256, crop_size=224):
+--- a/train.py
++++ b/train.py
+@@ -104,13 +104,14 @@
+             images = images.to(device, non_blocking=True)
+             labels = labels.to(device, non_blocking=True)
+             with torch.autocast(device_type='cuda', enabled=use_amp):
+-                loss = loss_fn(model(images), labels) / accum
++                window_size = min(accum, len(train_loader) - ((step - 1) // accum) * accum)
++                loss = loss_fn(model(images), labels) / window_size
+             scaler.scale(loss).backward()
+             if step % accum == 0 or step == len(train_loader):
+                 scaler.step(optim)
+                 scaler.update()
+                 optim.zero_grad(set_to_none=True)
+-            running += loss.item() * accum * labels.size(0)
++            running += loss.item() * window_size * labels.size(0)
+             n_seen += labels.size(0)
+ 
+         val = evaluate(model, val_loader, device, cfg['threshold'], use_amp)
+@@ -144,6 +145,8 @@
+ 
+     ckpt = torch.load(out_dir / 'best.pt', map_location='cpu', weights_only=False)
+     model.load_state_dict(ckpt['trainable'], strict=False)
++    if not cfg.get("evaluate_final", False):
++        return {"method": method, "best_epoch": best_epoch, "final_evaluation": "not_requested"}
+     print(f'[{method}] loaded best epoch {ckpt["epoch"]} val_acc={ckpt["val_acc"]:.4f}', flush=True)
+ 
+     results = {

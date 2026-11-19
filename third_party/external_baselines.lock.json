@@ -1,0 +1,16 @@
+[
+  {
+    "name": "IAPL",
+    "commit": "a173e7783bbafaa00d60e6e31774a0bc14411a23",
+    "url": "https://github.com/liyih/IAPL.git",
+    "local_path": "/mnt/ssd/data/reviews/arin5201_20261113/IAPL",
+    "role": "primary_recent_baseline"
+  },
+  {
+    "name": "GAPL",
+    "commit": "ea32aeb2d619b548daffa6db83296ee1aee70605",
+    "url": "https://github.com/UltraCapture/GAPL.git",
+    "local_path": "/mnt/ssd/data/reviews/arin5201_20261113/GAPL",
+    "role": "optional_scaling_reference"
+  }
+]

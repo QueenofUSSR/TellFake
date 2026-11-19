@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "scope": "Native IAPL conditional model construction using official GenImage gate/condition/smooth flags and pinned original JIT CLIP; no forward/training/TTA claim",
+  "parameters": 343750738,
+  "trainable_parameters": 39773058,
+  "backbone": "CLIP:ViT-L/14",
+  "conditional_ctx": true,
+  "gate": true,
+  "smooth": true
+}

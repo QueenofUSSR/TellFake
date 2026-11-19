@@ -1,0 +1,27 @@
+{
+  "track": "R",
+  "reproduction_level": "method-level protocol-corrected; author image selection not recovered",
+  "sources": [
+    "BigGAN"
+  ],
+  "validation_sources": [
+    "Real",
+    "BigGAN"
+  ],
+  "selection_limitation": null,
+  "counts": {
+    "train_S0": 4000,
+    "train_S1": 16000,
+    "train_S2": 64000,
+    "val": 5000,
+    "test_GLIDE": 7000
+  },
+  "source_protocol_sha256": "a5064830474d22a3a3b85631c003d2a25163a6e05c45bb0500bb8d4c547fce5c",
+  "manifest_sha256": {
+    "train_S0": "4079fcca606310f1538070f90683e1fdbc4a025e8d32526e48daed62aaf890f2",
+    "train_S1": "79cf506ca8813658784a838bf9211b107c586dd703c99765efab91a820ea1d34",
+    "train_S2": "d08d0daeadf6fcd7bb143a7064604c875210262e4fb60ffb22a3c66d0e16a643",
+    "val": "1225213ce624fb2410657e1dd6faa3d2dcb473e0dce39ea48d0ca18e54e2154e",
+    "test_GLIDE": "f4ed3824e32945cb81339e2dccb3dbf0017d71a18f834ebb1085adea95cf53ef"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "track": "R",
+  "reproduction_level": "method-level protocol-corrected; author image selection not recovered",
+  "sources": [
+    "BigGAN",
+    "ADM"
+  ],
+  "validation_sources": [
+    "Real",
+    "BigGAN"
+  ],
+  "selection_limitation": "BigGAN-only fake validation for BigGAN+ADM; recipe must be predeclared, no GLIDE tuning",
+  "counts": {
+    "train_S0": 4000,
+    "train_S1": 16000,
+    "train_S2": 64000,
+    "val": 5000,
+    "test_GLIDE": 7000
+  },
+  "source_protocol_sha256": "a5064830474d22a3a3b85631c003d2a25163a6e05c45bb0500bb8d4c547fce5c",
+  "manifest_sha256": {
+    "train_S0": "1331a5edd4b690ee4375584f63ddb0d31ce1c30155a4dc9d8bc3b18f15441ee9",
+    "train_S1": "8d8f07ebb22f7a0bbb402f8d63d80764a4c7fcd2d3117b29f8bb6f01b6714a79",
+    "train_S2": "a9a97c750f362715f29d9dfefeb8b3b817c9cca3d275c5c0b6dd210729caaa24",
+    "val": "1225213ce624fb2410657e1dd6faa3d2dcb473e0dce39ea48d0ca18e54e2154e",
+    "test_GLIDE": "f4ed3824e32945cb81339e2dccb3dbf0017d71a18f834ebb1085adea95cf53ef"
+  }
+}

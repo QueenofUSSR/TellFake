@@ -1,0 +1,60 @@
+--- a/main.py
++++ b/main.py
+@@ -21,6 +21,10 @@
+ def get_args_parser():
+     parser = argparse.ArgumentParser('Set transformer detector', add_help=False)
+         
++    parser.add_argument('--frozen-manifest-dir', required=True)
++    parser.add_argument('--train-manifest', default='train_S0')
++    parser.add_argument('--val-manifest', default='val')
++    parser.add_argument('--clip-path', required=True)
+     parser.add_argument('--seed', type=int, default=100)
+     parser.add_argument('--device', default='cuda',
+                         help='device to use for training / testing')
+@@ -114,7 +118,7 @@
+     # inter tta step
+     if args.tta == True:
+         assert args.eval == True
+-        testtime_main(args)
++        raise RuntimeError("TTA requires the P1 reset/coverage validation and P3 frozen scorer")
+         exit()
+ 
+     # infer dataset
+@@ -128,7 +132,16 @@
+     elif args.dataset == 'Chameleon_SD':
+         dataset_creator = Dataset_Creator_Chameleon_SD(dataset_path=args.dataset_path, batch_size=args.evalbatchsize, num_workers=args.num_workers, img_resolution=args.img_resolution, crop_resolution=args.crop_resolution)
+                     
+-    dataset_vals, selected_subsets = dataset_creator.build_dataset("test", selected_subsets=args.test_selected_subsets)
++    from reproduction.protocol import ManifestImages, assert_disjoint
++    if args.eval:
++        raise ValueError('P0/P1 launcher does not expose final evaluation; use frozen evaluation protocol in P3')
++    manifest_root = Path(args.frozen_manifest_dir)
++    validation = ManifestImages(manifest_root/(args.val_manifest+'.csv'), dataset_creator.transforms['val'])
++    training = ManifestImages(manifest_root/(args.train_manifest+'.csv'), dataset_creator.transforms['train'])
++    assert_disjoint(training.rows, validation.rows)
++    if any(r['source_split'] != 'train' for r in training.rows+validation.rows):
++        raise ValueError('Training/model selection must use official train only')
++    dataset_vals, selected_subsets = [validation], ['validation']
+     data_loader_vals = {}
+     num_testimage = 0
+     for dataset_val, selected_subset in zip(dataset_vals, selected_subsets):
+@@ -165,7 +178,7 @@
+         exit()
+     
+     # DATA LOADER
+-    dataset_train = dataset_creator.build_dataset("train", selected_subsets=args.train_selected_subsets)
++    dataset_train = training
+     
+     if args.distributed:
+         sampler_train = DistributedSampler(dataset_train)
+--- a/models/clip_models.py
++++ b/models/clip_models.py
+@@ -113,7 +113,7 @@
+                'SIZE': [args.image_size, args.image_size],
+                'VISION_WIDTH': args.vision_width,}
+         
+-        clip_model = load_clip_to_cpu('/Path/to/ViT-L-14.pt', cfg['N_CTX'], args.vit_adapter_list, args.text_adapter_list, args.prompt_depth, args.gate)
++        clip_model = load_clip_to_cpu(args.clip_path, cfg['N_CTX'], args.vit_adapter_list, args.text_adapter_list, args.prompt_depth, args.gate)
+ 
+         # learnable prompts
+         self.prompt_learner = MultiModalPromptLearner(cfg, clip_model)

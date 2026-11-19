@@ -1,0 +1,67 @@
+{
+  "scope": "seen validation only; no fitting or adaptation",
+  "validation_manifest": "/mnt/ssd/code/arin5201/reproduction/manifests/v1_20261114/val.csv",
+  "validation_sha256": "bdb4e4435565eb916d229bbe22e472176d6b880a45ade38e98a245e3ef9266ce",
+  "output_root": "/mnt/ssd/data/logs/arin5201/reproduction/proposal_validation_degradations64k_20261117",
+  "conditions": [
+    "jpeg90",
+    "jpeg70",
+    "jpeg50",
+    "blur0.5",
+    "blur1",
+    "blur2",
+    "downsample0.75",
+    "downsample0.5",
+    "downsample0.25"
+  ],
+  "degradation_order": "EXIF transpose/RGB -> one degradation -> common geometry -> normalize",
+  "jpeg_subsampling": 2,
+  "interpolation": "PIL bicubic downsample then restore original size",
+  "threshold_policy": "Reuse each model clean validation thresholds unchanged; do not select new checkpoints or refit",
+  "final_test_access": false,
+  "models": [
+    {
+      "method": "frozen_L14_resize",
+      "checkpoint": "/mnt/ssd/data/ckpt/arin5201/reproduction/proposal_scale64k_20261117/frozen_L14_resize/classifier.pkl",
+      "thresholds": "/mnt/ssd/data/logs/arin5201/reproduction/proposal_scale64k_20261117/frozen_L14_resize/thresholds.json",
+      "clean_scores": "/mnt/ssd/data/logs/arin5201/reproduction/proposal_scale64k_20261117/frozen_L14_resize/validation_scores.csv",
+      "best_epoch": null,
+      "source_result_sha256": "7f526296c618aec036e53406eae75c311bc904668c8d626566619d9447462352",
+      "checkpoint_sha256": "f32999f423255e8d87a2b9aefeadbf4c8ee1ff44286ab0e35d1bbc52131fd0eb",
+      "thresholds_sha256": "02b8f2166762448f7c4e87bbf706427263370dc19f8e2db8a4d8b5a77ebc9869",
+      "clean_scores_sha256": "d54504d00a7df6ebfd3b8a52321ad53bb13f36907ef1f4b997819c3427d036f6"
+    },
+    {
+      "method": "effort",
+      "checkpoint": "/mnt/ssd/data/ckpt/arin5201/reproduction/proposal_scale64k_20261117/effort/best.pt",
+      "thresholds": "/mnt/ssd/data/logs/arin5201/reproduction/proposal_scale64k_20261117/effort/thresholds.json",
+      "clean_scores": "/mnt/ssd/data/logs/arin5201/reproduction/proposal_scale64k_20261117/effort/validation_scores.csv",
+      "best_epoch": 6,
+      "source_result_sha256": "7e411f5f534ca124decbe7b246f5b01989ff9edcc66d7dd4f67743737bc9cf30",
+      "checkpoint_sha256": "d125eadfa335bb0c29729602096c002f99930035f513808bcdb791711c557d8c",
+      "thresholds_sha256": "a43d564880a2a57dfb8e5cf9a6c0a01e7a43dd793da352e09a53167bc5779583",
+      "clean_scores_sha256": "9751f6f139fd7010c228d20d4f92400622e429604e08d4d683c03b0213a903b7"
+    },
+    {
+      "method": "effort_degradation",
+      "checkpoint": "/mnt/ssd/data/ckpt/arin5201/reproduction/proposal_scale64k_20261117/effort_degradation/best.pt",
+      "thresholds": "/mnt/ssd/data/logs/arin5201/reproduction/proposal_scale64k_20261117/effort_degradation/thresholds.json",
+      "clean_scores": "/mnt/ssd/data/logs/arin5201/reproduction/proposal_scale64k_20261117/effort_degradation/validation_scores.csv",
+      "best_epoch": 9,
+      "source_result_sha256": "22d5a6a2109cc31ad2d9a35cbb80a5520252720ef38c3695b44e0c1337a22ef8",
+      "checkpoint_sha256": "7d326deda29a917e32e1dd434e06f5d806c09c7f34b96270d4e5491e7f52c189",
+      "thresholds_sha256": "86050655ab0a84d23b07a2e339b079a6b1c98b6129e711f5c416b95934652d7c",
+      "clean_scores_sha256": "15f1733224b5c898e3d4edfe29257ba2bd431b9f49bff3f6cfa03e53a1652945"
+    }
+  ],
+  "implementation_sha256": {
+    "/mnt/ssd/code/arin5201/reproduction/proposal/evaluate_degradations.py": "1c958fbefc9ef87262a1003a4b7263def9d92165b12106bf87dfa5a659553f37",
+    "/mnt/ssd/code/arin5201/reproduction/proposal/models.py": "2a194c7bc652ff9666f6c1e10e06983cb3ef8a7eb8abf451359d09afd27ce092",
+    "/mnt/ssd/code/arin5201/reproduction/proposal/run.py": "7cf6ac2b28f3c3fdff6a111b80ed80367b9259f1f0883782418b30823b36e1b2",
+    "/mnt/ssd/code/arin5201/reproduction/p1/models.py": "c1eba5460a642abc0653121d49f1556673991a55b15c5122396d0c3e4fbc676a",
+    "/mnt/ssd/code/arin5201/genimage_detector/metrics.py": "76d1fd933fe958f018c6dc8576f80fc86be47d693a29511111cb2b985c177e7d",
+    "/mnt/ssd/code/arin5201/reproduction/proposal/evaluate_degradations64k.py": "eb22fdc02bc19daec90e5d503e90012f4d9461984e1ea677ce1b082a9be983f3"
+  },
+  "training_scale": 64000,
+  "seed": 42
+}

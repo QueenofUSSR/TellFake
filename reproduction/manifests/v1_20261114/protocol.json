@@ -1,0 +1,134 @@
+{
+  "stratification": "Source/label balanced; round-robin filename class prefixes where recoverable (ImageNet synset or generator class index); unknown classes not invented; no claim of shared cross-source semantic class alignment.",
+  "schema_version": 1,
+  "seed": 20261114,
+  "data_root": "/mnt/ssd/data/datasets/GenImage/official_v3",
+  "seen": [
+    "SD14",
+    "BigGAN"
+  ],
+  "primary_unseen": [
+    "ADM",
+    "GLIDE"
+  ],
+  "same_family": [
+    "SD15"
+  ],
+  "extended": [
+    "VQDM",
+    "Midjourney_subset"
+  ],
+  "counts": {
+    "val": {
+      "Real": 5000,
+      "SD14": 2500,
+      "BigGAN": 2500
+    },
+    "dev": {
+      "Real": 4000,
+      "SD14": 2000,
+      "BigGAN": 2000
+    },
+    "train_S3": {
+      "Real": 64000,
+      "SD14": 32000,
+      "BigGAN": 32000
+    },
+    "train_S2": {
+      "Real": 32000,
+      "SD14": 16000,
+      "BigGAN": 16000
+    },
+    "train_S1": {
+      "Real": 8000,
+      "SD14": 4000,
+      "BigGAN": 4000
+    },
+    "train_S0": {
+      "Real": 2000,
+      "SD14": 1000,
+      "BigGAN": 1000
+    },
+    "test_real": {
+      "Real": 5000
+    },
+    "test_SD14": {
+      "SD14": 2000
+    },
+    "test_BigGAN": {
+      "BigGAN": 2000
+    },
+    "test_ADM": {
+      "ADM": 2000
+    },
+    "test_GLIDE": {
+      "GLIDE": 2000
+    },
+    "test_SD15": {
+      "SD15": 2000
+    },
+    "test_VQDM": {
+      "VQDM": 2000
+    },
+    "test_Midjourney_subset": {
+      "Midjourney_subset": 2000
+    },
+    "R_ADM_train_pool": {
+      "ADM": 16000
+    },
+    "R_SD14_train_extra": {
+      "SD14": 16000
+    }
+  },
+  "manifest_sha256": {
+    "val": "bdb4e4435565eb916d229bbe22e472176d6b880a45ade38e98a245e3ef9266ce",
+    "dev": "646bcfd4e2ae68879253375fed5326e15412f9fffcfb09d7182f37a0f7f2f88f",
+    "train_S3": "0b2dca10ca1efd231216ed71718e1e73e47136a25a391f3ea35fe95c95e3d782",
+    "train_S2": "af10d40375d2b0dfdd4e65770635bf84e83640d13324fab3f7f1ce2732f6a829",
+    "train_S1": "66b4403c98fff0d32f342c9f15d50d1ff61f8c4fcece2b0a1d54248b9ee42580",
+    "train_S0": "f011c45e3b6daf85fb27791f1758d421cf78c180b4f949192728f73a870d7fbc",
+    "test_real": "3b676fe0861dec75263a10d5aac66ac884e11e4998a39f39a8ee01ea948432cb",
+    "test_SD14": "3ae620aa7a9998d66537705264cc063a3fc9d9ff76506b12edbdcaf548165470",
+    "test_BigGAN": "8dfb927e159f4cc00b2e41e668c7b19c9b8acbe83794a61a87a9d500410344fe",
+    "test_ADM": "144989a850725a2602fbc03d0aa751427d20e9d2dc868725954d426350db23e3",
+    "test_GLIDE": "2475834d389d179f337457b84c7960c7762e2cb77a73921ee6cb95a96bd3ed2b",
+    "test_SD15": "eb3ac72ed3a30795eabaee96fb6b7ae7ccabfbbeea304035032765177754d9e4",
+    "test_VQDM": "4f7b3bb3d9a043bb2858b078f201a766ebdbe7abb1257a7b59b00d0c8fe9a4f4",
+    "test_Midjourney_subset": "7592484bce48e810bca306404f17960d468fdc130f8300f99d37ba70c8833df2",
+    "R_ADM_train_pool": "7ab13323936150bda315b187e39ecf2ba1543c928e488a0aaed7f0ff0ae44bec",
+    "R_SD14_train_extra": "9d5a39e8a448de11f38763ec3d815cdcb77ce0a4d0dd995f3f3f007684565da2"
+  },
+  "audit_db": "/mnt/ssd/data/logs/arin5201/reproduction/p0_20261114/decoded.sqlite",
+  "audit_scope": "candidate_input.csv; not whole retained reserve",
+  "near_duplicate_algorithm": "EXIF-normalized RGB pixel SHA256, ImageNet filename identity, 64-bit grayscale dHash Hamming <=4; exhaustive five-band retrieval within audited candidates and historical keys; one representative per connected component. Not a guarantee against crops or all perceptual duplicates.",
+  "historical_manifest_sha256": {
+    "data/manifests/v2/unseen_test.csv": "31635f94b28cc7a9e2e7420211d60e0f277386ec90007a29bc5e5b82f4c8195c",
+    "data/manifests/v2/seen_test.csv": "6ca3ec8d6036f7dcac7385461ae77d103968a54925201f627122ba54f596598a",
+    "data/manifests/v2/val.csv": "16fe61d74e3a6d9b1dc6e65b0ff2b73a07149b69eea121f761bc6774bb785c17",
+    "data/manifests/v2/train.csv": "d47fd88ca9c534d6b74f7f6e8590e4b74fd5eb0a1c8b7b3566f451c67a06b601",
+    "data/manifests/v3_supplement_20261113/external_real_test.csv": "cd5ce51db99c476e0924da05e492ada7804b2a5673da2ed9ff427a2ef1ac4dba",
+    "data/manifests/v3_supplement_20261113/midjourney_test.csv": "67513e75b5a293b9324f3646c045869df78aa357640388f9f781f14145e82a86",
+    "data/manifests/v3/unseen_test.csv": "4895330fd1b972f340734648dec856024b4b30361927bf2e20bca667ef179dcf",
+    "data/manifests/v3/real_test.csv": "b50dafc7c41c48458482035b7ba61eef996c0455e19c784262ee97f6d766d767",
+    "data/manifests/v3/dev.csv": "5765afdc53aa5247b03ebac830e9857dbe05bad5d821bbe8aaae3f18b443cf37",
+    "data/manifests/v3/seen_test.csv": "a152ac194acf7f09f07e3b3279a55f83e67391aaef9952aeb953648f2aca643c",
+    "data/manifests/v3/val.csv": "ec9a933ada365c6e6aea3e9444c3d411a4b0fe993fb87e5671f5040f3ad702c3",
+    "data/manifests/v3/train.csv": "0cf34c5bdafdd040a591d41af7d3c63837cebaa4bceaf42b7d0b2153c2f2e400"
+  },
+  "test_policy": "All prior used manifests excluded, official val only for confirmation; same domains as historical research; no new test scores inspected.",
+  "derivative_policy": "Derivatives must inherit original_id, group_id and split; no independently split crops/JPEG/VAE twins.",
+  "availability_before_allocation": {
+    "ADM/train": 21667,
+    "ADM/val": 5737,
+    "BigGAN/train": 48757,
+    "BigGAN/val": 4512,
+    "GLIDE/val": 5692,
+    "Midjourney_subset/val": 3966,
+    "Real/train": 98721,
+    "Real/val": 32751,
+    "SD14/train": 59373,
+    "SD14/val": 5800,
+    "SD15/val": 6372,
+    "VQDM/val": 3915
+  }
+}

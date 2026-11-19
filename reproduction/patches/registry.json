@@ -1,0 +1,33 @@
+[
+  {
+    "name": "ARIN5201_CV_Project",
+    "upstream_commit": "13d741b8cac51685b68cd396583408a75ed157d0",
+    "source": "/mnt/ssd/data/cache/arin5201/reproduction/sources/ARIN5201_CV_Project"
+  },
+  {
+    "name": "ARIN5201-AIGI-Detection",
+    "upstream_commit": "0df86dad7c32b204d6e16e96b1b2fd5864de9ebb",
+    "source": "/mnt/ssd/data/cache/arin5201/reproduction/sources/ARIN5201-AIGI-Detection",
+    "patch": "reproduction/patches/ARIN5201-AIGI-Detection.patch",
+    "patch_sha256": "54c102e5401088b176d4ec1b9be222b6cb82f031484fae1a45ec2192fa1062fc"
+  },
+  {
+    "name": "clip_dual_aigi",
+    "upstream_commit": "016a14d5a68e24666d907e1564d427bc7f7d995a",
+    "source": "/mnt/ssd/data/cache/arin5201/reproduction/sources/clip_dual_aigi",
+    "patch": "reproduction/patches/clip_dual_aigi.patch",
+    "patch_sha256": "77a7f9df7fe5110be1d0e927e9d7b4abbf31ca4a3eb4008c72f880aaa6a8135b"
+  },
+  {
+    "name": "IAPL",
+    "upstream_commit": "a173e7783bbafaa00d60e6e31774a0bc14411a23",
+    "source": "/mnt/ssd/data/cache/arin5201/reproduction/sources/IAPL",
+    "patch": "reproduction/patches/IAPL.patch",
+    "patch_sha256": "2d6f815f0d2338d7e62059320ff8da4034b1accf8dc7a6dbd037bec129cc59a9"
+  },
+  {
+    "name": "GAPL",
+    "upstream_commit": "ea32aeb2d619b548daffa6db83296ee1aee70605",
+    "source": "/mnt/ssd/data/cache/arin5201/reproduction/sources/GAPL"
+  }
+]

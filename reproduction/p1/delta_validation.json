@@ -1,0 +1,257 @@
+{
+  "status": "passed",
+  "methods": [
+    {
+      "method": "effort_native",
+      "status": "passed",
+      "file": "/mnt/ssd/data/ckpt/arin5201/reproduction/p1_20261114/effort_native/delta.pt",
+      "sha256": "dd6bcb996221287f949c2b39a9e4525f9c6854f3eddcff3dc2b19ed54e12f79a",
+      "bytes": 2755361,
+      "full_bytes": 1215524090,
+      "checks": [
+        "fresh frozen base hashes match trained checkpoint",
+        "all model tensors reconstruct exactly",
+        "prediction exact after intentional corruption",
+        "optimizer/scheduler/scaler/RNG/sampler retained"
+      ]
+    },
+    {
+      "method": "lora_native",
+      "status": "passed",
+      "file": "/mnt/ssd/data/ckpt/arin5201/reproduction/p1_20261114/lora_native/delta.pt",
+      "sha256": "5162c545569c50e9bf6bd3af4e448efdcaa896b451f55127eb1cd3d99bb9f366",
+      "bytes": 19157246,
+      "full_bytes": 1231928122,
+      "checks": [
+        "fresh frozen base hashes match trained checkpoint",
+        "all model tensors reconstruct exactly",
+        "prediction exact after intentional corruption",
+        "optimizer/scheduler/scaler/RNG/sampler retained"
+      ]
+    },
+    {
+      "method": "effort",
+      "status": "passed",
+      "file": "/mnt/ssd/data/ckpt/arin5201/reproduction/p1_20261114/effort/delta.pt",
+      "sha256": "8cfeab737a7e7b20f4a9d9a8da8150d300fb06144136e89fb55bf256ff710da0",
+      "bytes": 2755297,
+      "full_bytes": 1215524090,
+      "checks": [
+        "fresh frozen base hashes match trained checkpoint",
+        "all model tensors reconstruct exactly",
+        "prediction exact after intentional corruption",
+        "optimizer/scheduler/scaler/RNG/sampler retained"
+      ]
+    },
+    {
+      "method": "dual_adapter",
+      "status": "passed",
+      "file": "/mnt/ssd/data/ckpt/arin5201/reproduction/p1_20261114/dual_adapter/delta.pt",
+      "sha256": "5c6fedba797d5e89a21ca7312197024bff2dc95cf6190905c8e207488a46d992",
+      "bytes": 76479738,
+      "full_bytes": 2502017566,
+      "checks": [
+        "fresh frozen base hashes match trained checkpoint",
+        "all model tensors reconstruct exactly",
+        "prediction exact after intentional corruption",
+        "optimizer/scheduler/scaler/RNG/sampler retained"
+      ]
+    },
+    {
+      "method": "dual_ssf",
+      "status": "passed",
+      "file": "/mnt/ssd/data/ckpt/arin5201/reproduction/p1_20261114/dual_ssf/delta.pt",
+      "sha256": "7dcfd6db920321462839d4f9aa165f0239cabb248b1ff72b187babc3cbf7d83a",
+      "bytes": 1442938,
+      "full_bytes": 2426977630,
+      "checks": [
+        "fresh frozen base hashes match trained checkpoint",
+        "all model tensors reconstruct exactly",
+        "prediction exact after intentional corruption",
+        "optimizer/scheduler/scaler/RNG/sampler retained"
+      ]
+    },
+    {
+      "method": "frozen_only",
+      "status": "passed",
+      "file": "/mnt/ssd/data/ckpt/arin5201/reproduction/p1_20261114/frozen_only/delta.pt",
+      "sha256": "779183ab4f3fcde3d28f8907533b2e2ec9686e7c56af10690a763d6c5b5efc86",
+      "bytes": 98327,
+      "full_bytes": 1212864081,
+      "checks": [
+        "fresh frozen base hashes match trained checkpoint",
+        "all model tensors reconstruct exactly",
+        "prediction exact after intentional corruption",
+        "optimizer/scheduler/scaler/RNG/sampler retained"
+      ]
+    },
+    {
+      "method": "adapter_only",
+      "status": "passed",
+      "file": "/mnt/ssd/data/ckpt/arin5201/reproduction/p1_20261114/adapter_only/delta.pt",
+      "sha256": "80ccd37164979a3eb8e9d6e34f768dcd8f16c4c04a630c18ee6dce5ffb622912",
+      "bytes": 76406142,
+      "full_bytes": 1289177018,
+      "checks": [
+        "fresh frozen base hashes match trained checkpoint",
+        "all model tensors reconstruct exactly",
+        "prediction exact after intentional corruption",
+        "optimizer/scheduler/scaler/RNG/sampler retained"
+      ]
+    },
+    {
+      "method": "ssf_only",
+      "status": "passed",
+      "file": "/mnt/ssd/data/ckpt/arin5201/reproduction/p1_20261114/ssf_only/delta.pt",
+      "sha256": "af82c7b958be106e16a5886b89b52dc93e5ae4b43f779141eb2bd082a421cd14",
+      "bytes": 1369342,
+      "full_bytes": 1214137553,
+      "checks": [
+        "fresh frozen base hashes match trained checkpoint",
+        "all model tensors reconstruct exactly",
+        "prediction exact after intentional corruption",
+        "optimizer/scheduler/scaler/RNG/sampler retained"
+      ]
+    },
+    {
+      "method": "iapl",
+      "status": "passed",
+      "file": "/mnt/ssd/data/ckpt/arin5201/reproduction/p1_20261114/iapl/delta.pt",
+      "sha256": "ab8cc49e11cd83ae8a73913ef4a199ed7b74e9c0ff0447063c05edb5ea0169b1",
+      "bytes": 477591314,
+      "full_bytes": 1693544816,
+      "checks": [
+        "fresh frozen base hashes match trained checkpoint",
+        "all model tensors reconstruct exactly",
+        "prediction exact after intentional corruption",
+        "optimizer/scheduler/scaler/RNG/sampler retained"
+      ]
+    },
+    {
+      "method": "effort_npr",
+      "status": "passed",
+      "file": "/mnt/ssd/data/ckpt/arin5201/reproduction/p1_20261114/effort_npr/delta.pt",
+      "sha256": "36a89529ae4c1156ad043e204705d3dbd95a59ab0fa51ad0701fa71f047decea",
+      "bytes": 137047661,
+      "full_bytes": 1349806282,
+      "checks": [
+        "fresh frozen base hashes match trained checkpoint",
+        "all model tensors reconstruct exactly",
+        "prediction exact after intentional corruption",
+        "optimizer/scheduler/scaler/RNG/sampler retained"
+      ]
+    },
+    {
+      "method": "npr_only",
+      "status": "passed",
+      "file": "/mnt/ssd/data/ckpt/arin5201/reproduction/p1_20261114/npr_only/delta.pt",
+      "sha256": "54d86084d0f4b738b71efe015f0a0586a0092f3db29130c08d9f22b59bbeb5c9",
+      "bytes": 134267410,
+      "full_bytes": 134268696,
+      "checks": [
+        "fresh frozen base hashes match trained checkpoint",
+        "all model tensors reconstruct exactly",
+        "prediction exact after intentional corruption",
+        "optimizer/scheduler/scaler/RNG/sampler retained"
+      ]
+    },
+    {
+      "method": "effort_rgb",
+      "status": "passed",
+      "file": "/mnt/ssd/data/ckpt/arin5201/reproduction/p1_20261114/effort_rgb/delta.pt",
+      "sha256": "78fdda5a6176f6e708a4126f4a0615d12cdad928458fbb33223d4df50ec93d5f",
+      "bytes": 137047661,
+      "full_bytes": 1349806282,
+      "checks": [
+        "fresh frozen base hashes match trained checkpoint",
+        "all model tensors reconstruct exactly",
+        "prediction exact after intentional corruption",
+        "optimizer/scheduler/scaler/RNG/sampler retained"
+      ]
+    },
+    {
+      "method": "effort_npr_noaux",
+      "status": "passed",
+      "file": "/mnt/ssd/data/ckpt/arin5201/reproduction/p1_20261114/effort_npr_noaux/delta.pt",
+      "sha256": "3d627d42a968039a134be5fef6a26b5a5720543e44e9d4f5d8798c6ce4b2db7a",
+      "bytes": 137019793,
+      "full_bytes": 1349778618,
+      "checks": [
+        "fresh frozen base hashes match trained checkpoint",
+        "all model tensors reconstruct exactly",
+        "prediction exact after intentional corruption",
+        "optimizer/scheduler/scaler/RNG/sampler retained"
+      ]
+    },
+    {
+      "method": "resnet50",
+      "status": "passed",
+      "file": "/mnt/ssd/data/ckpt/arin5201/reproduction/p1_20261114/resnet50/delta.pt",
+      "sha256": "4d7c9dcd0d5f9b4c51349c57413bb001f4b7ebafa5c0a3ca36af5e3883c1ad32",
+      "bytes": 282572566,
+      "full_bytes": 282576173,
+      "checks": [
+        "fresh frozen base hashes match trained checkpoint",
+        "all model tensors reconstruct exactly",
+        "prediction exact after intentional corruption",
+        "optimizer/scheduler/scaler/RNG/sampler retained"
+      ]
+    },
+    {
+      "method": "deit_s",
+      "status": "passed",
+      "file": "/mnt/ssd/data/ckpt/arin5201/reproduction/p1_20261114/deit_s/delta.pt",
+      "sha256": "0384af038919d307d1d9419d9969fa94f027c8e9ea6fb5e40d27858c633352d3",
+      "bytes": 260162210,
+      "full_bytes": 260165756,
+      "checks": [
+        "fresh frozen base hashes match trained checkpoint",
+        "all model tensors reconstruct exactly",
+        "prediction exact after intentional corruption",
+        "optimizer/scheduler/scaler/RNG/sampler retained"
+      ]
+    },
+    {
+      "method": "swin_t",
+      "status": "passed",
+      "file": "/mnt/ssd/data/ckpt/arin5201/reproduction/p1_20261114/swin_t/delta.pt",
+      "sha256": "d99c1a462a5d751f13d3912b5948ae586cb7c610b8cfdcbd9242ff3102f7ac0f",
+      "bytes": 330670242,
+      "full_bytes": 330674268,
+      "checks": [
+        "fresh frozen base hashes match trained checkpoint",
+        "all model tensors reconstruct exactly",
+        "prediction exact after intentional corruption",
+        "optimizer/scheduler/scaler/RNG/sampler retained"
+      ]
+    },
+    {
+      "method": "cnnspot",
+      "status": "passed",
+      "file": "/mnt/ssd/data/ckpt/arin5201/reproduction/p1_20261114/cnnspot/delta.pt",
+      "sha256": "58cba5a16d64fa94a53eca75c1ecd3f2fd87e97d2e0d3442d71ff105d094b291",
+      "bytes": 282572566,
+      "full_bytes": 282576173,
+      "checks": [
+        "fresh frozen base hashes match trained checkpoint",
+        "all model tensors reconstruct exactly",
+        "prediction exact after intentional corruption",
+        "optimizer/scheduler/scaler/RNG/sampler retained"
+      ]
+    },
+    {
+      "method": "effort_degradation",
+      "status": "passed",
+      "file": "/mnt/ssd/data/ckpt/arin5201/reproduction/p1_20261114/effort_degradation/delta.pt",
+      "sha256": "d32b1b7ae6fc78d9961c0583e3fa767a3ccc39f1b4a314394be365964ecbf298",
+      "bytes": 2755297,
+      "full_bytes": 1215524090,
+      "checks": [
+        "fresh frozen base hashes match trained checkpoint",
+        "all model tensors reconstruct exactly",
+        "prediction exact after intentional corruption",
+        "optimizer/scheduler/scaler/RNG/sampler retained"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+--- a/code/data/build_sets.py
++++ b/code/data/build_sets.py
+@@ -91,7 +91,7 @@
+ def step_vae():
+     import numpy as np, torch
+     from diffusers import AutoencoderKL
+-    vae = AutoencoderKL.from_pretrained('sd2-community/stable-diffusion-2-1', subfolder='vae',
++    vae = AutoencoderKL.from_pretrained(os.environ['REPRO_VAE_PATH'], subfolder='vae',
+                                         torch_dtype=torch.float16).to('cuda').eval()
+     vae32 = None; n_nan = 0; rows = real_meta(); out = []
+     for i, r in enumerate(rows):
+@@ -102,13 +102,14 @@
+         img = Image.open(r['path']).convert('RGB'); w, h = img.size; nw, nh = w // 8 * 8, h // 8 * 8
+         l, t = (w - nw) // 2, (h - nh) // 2; img = img.crop((l, t, l + nw, t + nh))
+         x = torch.from_numpy(np.array(img)).permute(2, 0, 1)[None].float().div(255).mul(2).sub(1).cuda()
++        sample_seed = int.from_bytes(__import__("hashlib").sha256((str(os.environ.get("SEED", "42"))+"|"+r["path"]).encode()).digest()[:8], "big") % (2**63)
+         with torch.no_grad():
+-            dec = vae.decode(vae.encode(x.half()).latent_dist.sample()).sample
++            dec = vae.decode(vae.encode(x.half()).latent_dist.sample(generator=torch.Generator(device="cuda").manual_seed(sample_seed))).sample
+             if not torch.isfinite(dec).all():  # fp16 overflow fallback
+                 n_nan += 1
+                 if vae32 is None:
+-                    vae32 = AutoencoderKL.from_pretrained('sd2-community/stable-diffusion-2-1', subfolder='vae').to('cuda').eval()
+-                dec = vae32.decode(vae32.encode(x).latent_dist.sample()).sample
++                    vae32 = AutoencoderKL.from_pretrained(os.environ['REPRO_VAE_PATH'], subfolder='vae').to('cuda').eval()
++                dec = vae32.decode(vae32.encode(x).latent_dist.sample(generator=torch.Generator(device="cuda").manual_seed(sample_seed))).sample
+         rec = ((dec.float()[0].permute(1, 2, 0).cpu().numpy() + 1) / 2 * 255).clip(0, 255).astype('uint8')
+         del x, dec; torch.cuda.empty_cache()
+         for p in (crop_p, rec_p): os.makedirs(os.path.dirname(p), exist_ok=True)
+--- a/code/data/build_d3.py
++++ b/code/data/build_d3.py
+@@ -43,17 +43,18 @@
+ def step_vae():
+     import numpy as np, torch
+     from diffusers import AutoencoderKL
+-    vae = AutoencoderKL.from_pretrained('sd2-community/stable-diffusion-2-1', subfolder='vae', torch_dtype=torch.float16).cuda().eval()
++    vae = AutoencoderKL.from_pretrained(os.environ['REPRO_VAE_PATH'], subfolder='vae', torch_dtype=torch.float16).cuda().eval()
+     rows = list(csv.DictReader(open(f'{OUT}/real.csv'))); n_nan = 0
+     for i, r in enumerate(rows):
+         dst = r['path'].replace('/real/', '/vae_rec/')
+         if os.path.exists(dst): continue
+         img = Image.open(r['path']).convert('RGB')
+         x = torch.from_numpy(np.array(img)).permute(2, 0, 1)[None].float().div(255).mul(2).sub(1).cuda()
++        sample_seed = int.from_bytes(__import__("hashlib").sha256((str(os.environ.get("SEED", "42"))+"|"+r["path"]).encode()).digest()[:8], "big") % (2**63)
+         with torch.no_grad():
+-            dec = vae.decode(vae.encode(x.half()).latent_dist.sample()).sample
++            dec = vae.decode(vae.encode(x.half()).latent_dist.sample(generator=torch.Generator(device="cuda").manual_seed(sample_seed))).sample
+             if not torch.isfinite(dec).all():
+-                n_nan += 1; v32 = vae.float(); dec = v32.decode(v32.encode(x).latent_dist.sample()).sample; vae.half()
++                n_nan += 1; v32 = vae.float(); dec = v32.decode(v32.encode(x).latent_dist.sample(generator=torch.Generator(device="cuda").manual_seed(sample_seed))).sample; vae.half()
+         rec = ((dec.float()[0].permute(1, 2, 0).cpu().numpy() + 1) / 2 * 255).clip(0, 255).astype('uint8')
+         os.makedirs(os.path.dirname(dst), exist_ok=True); Image.fromarray(rec).save(dst)
+         del x, dec; torch.cuda.empty_cache()
+--- a/code/exp/train_ft.py
++++ b/code/exp/train_ft.py
+@@ -123,7 +123,7 @@
+             def __init__(s): super().__init__(); s.art = resnet18_branch(); s.head = nn.Linear(512, 2)
+             def forward(s, x, return_all=False): return s.head(s.art(art_in(s, x, art_f)))
+         return NPROnly()
+-    full = CLIPVisionModel.from_pretrained('openai/clip-vit-large-patch14')
++    full = CLIPVisionModel.from_pretrained(os.environ['REPRO_CLIP_PATH'], local_files_only=True)
+     full.gradient_checkpointing_enable(gradient_checkpointing_kwargs={'use_reentrant': False})
+     vm = getattr(full, 'vision_model', full)  # transformers>=5 flattens CLIPVisionModel (no .vision_model)
+     for p in vm.parameters(): p.requires_grad_(False)

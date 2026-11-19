@@ -1,0 +1,14 @@
+{
+  "train_originals": 64000,
+  "validation_originals": 10000,
+  "train_sources": {
+    "Real": 32000,
+    "SD14": 16000,
+    "BigGAN": 16000
+  },
+  "s1_nested_in_s2": true,
+  "train_validation_disjoint": true,
+  "all_paths_exist": true,
+  "implementation_hashes_match": true,
+  "test_access": false
+}

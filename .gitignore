@@ -1,0 +1,17 @@
+data/
+ckpt/
+logs/
+tmp/
+__pycache__/
+*.py[cod]
+*.pt
+*.pth
+*.log
+.venv/
+.pytest_cache/
+
+.venv-local/
+!data/
+data/*
+!data/manifests/
+release_assets/

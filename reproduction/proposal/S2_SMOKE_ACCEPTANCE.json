@@ -1,0 +1,17 @@
+{
+  "methods": {
+    "frozen_L14_resize": {
+      "result": "/mnt/ssd/data/logs/arin5201/reproduction/proposal_scale64k_20261117_smoke/frozen_L14_resize/result.json",
+      "sha256": "5753bad5b850904b9722fc8b8d3cad5f3baf24d76922e3e3d0277319cd116e2b"
+    },
+    "effort": {
+      "result": "/mnt/ssd/data/logs/arin5201/reproduction/proposal_scale64k_20261117_smoke/effort/result.json",
+      "sha256": "8ffee67ea87258730c9d088652f721487cc6fd3ed9ff276c6063320db8bcb00e"
+    },
+    "effort_degradation": {
+      "result": "/mnt/ssd/data/logs/arin5201/reproduction/proposal_scale64k_20261117_smoke/effort_degradation/result.json",
+      "sha256": "5f94057cbcd531ce8f7e6c96c483f6db7ec6157ceb4056378294b90065a6312e"
+    }
+  },
+  "scope": "64 train/32 validation; two neural epochs; functional checks only"
+}

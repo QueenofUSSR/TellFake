@@ -1,0 +1,27 @@
+{
+  "track": "R",
+  "reproduction_level": "method-level protocol-corrected; author image selection not recovered",
+  "sources": [
+    "SD14"
+  ],
+  "validation_sources": [
+    "Real",
+    "SD14"
+  ],
+  "selection_limitation": null,
+  "counts": {
+    "train_S0": 4000,
+    "train_S1": 16000,
+    "train_S2": 64000,
+    "val": 5000,
+    "test_GLIDE": 7000
+  },
+  "source_protocol_sha256": "a5064830474d22a3a3b85631c003d2a25163a6e05c45bb0500bb8d4c547fce5c",
+  "manifest_sha256": {
+    "train_S0": "1f82e4e6d6fc17d41e31aa24d241a3d2c9e496095cf9b702852cd910148409af",
+    "train_S1": "643779ade07807bcaa9a40d5b3ec8109829a79c7a757465c2c42afc63fa41f7b",
+    "train_S2": "d4dd7f39e046c10ef6cee7dcd5b18ad03ba6892973ecea96add17065ccdbfbc2",
+    "val": "21b7c804c64b9f9de34d215d81dc1b8c24f34d2433c8e9356065b42379fdf3b0",
+    "test_GLIDE": "f4ed3824e32945cb81339e2dccb3dbf0017d71a18f834ebb1085adea95cf53ef"
+  }
+}

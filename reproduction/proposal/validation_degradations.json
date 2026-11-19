@@ -1,0 +1,64 @@
+{
+  "scope": "seen validation only; no fitting or adaptation",
+  "validation_manifest": "/mnt/ssd/code/arin5201/reproduction/manifests/v1_20261114/val.csv",
+  "validation_sha256": "bdb4e4435565eb916d229bbe22e472176d6b880a45ade38e98a245e3ef9266ce",
+  "output_root": "/mnt/ssd/data/logs/arin5201/reproduction/proposal_validation_degradations_20261117",
+  "conditions": [
+    "jpeg90",
+    "jpeg70",
+    "jpeg50",
+    "blur0.5",
+    "blur1",
+    "blur2",
+    "downsample0.75",
+    "downsample0.5",
+    "downsample0.25"
+  ],
+  "degradation_order": "EXIF transpose/RGB -> one degradation -> common geometry -> normalize",
+  "jpeg_subsampling": 2,
+  "interpolation": "PIL bicubic downsample then restore original size",
+  "threshold_policy": "Reuse each model clean validation thresholds unchanged; do not select new checkpoints or refit",
+  "final_test_access": false,
+  "models": [
+    {
+      "method": "frozen_L14_resize",
+      "checkpoint": "/mnt/ssd/data/ckpt/arin5201/reproduction/proposal_round1_20261115/frozen_L14_resize/classifier.pkl",
+      "thresholds": "/mnt/ssd/data/logs/arin5201/reproduction/proposal_round1_20261115/frozen_L14_resize/thresholds.json",
+      "clean_scores": "/mnt/ssd/data/logs/arin5201/reproduction/proposal_round1_20261115/frozen_L14_resize/validation_scores.csv",
+      "best_epoch": null,
+      "source_result_sha256": "7be9514af72c086c3cf051237cbbeea91ab55bff94a79ed271399dfccfa3ba0a",
+      "checkpoint_sha256": "1adc9c8b608123b444d305eaf47262a8fbb3337472964f94000e9dcca57dca85",
+      "thresholds_sha256": "0aa8e7b5bd4be401467a549589d54d8279c0ffd2de527055cc4c73ac841bf5b0",
+      "clean_scores_sha256": "916d7b8f2b7aa2853e84a41822173ffaadb5abf55865b04d379cb2a1b65ce0d6"
+    },
+    {
+      "method": "effort",
+      "checkpoint": "/mnt/ssd/data/ckpt/arin5201/reproduction/proposal_extension10_20261117/effort/best.pt",
+      "thresholds": "/mnt/ssd/data/logs/arin5201/reproduction/proposal_extension10_20261117/effort/thresholds.json",
+      "clean_scores": "/mnt/ssd/data/logs/arin5201/reproduction/proposal_extension10_20261117/effort/validation_scores.csv",
+      "best_epoch": 10,
+      "source_result_sha256": "cfe165f5eb5dd3100e1d8f5682e17803a0c1aa9c2c50fa0e6419724ce8b0536a",
+      "checkpoint_sha256": "29e8df4c03bdb218401d27756cacc4725b6969e9a701fe12319b14acc944f230",
+      "thresholds_sha256": "54ee82df85da29371aac6345271a85825071b0482ba7803db0d2791af53702b9",
+      "clean_scores_sha256": "a68967ebaf8ef52e438480d17206f48f726105ef267fdda602dce40d668e6092"
+    },
+    {
+      "method": "effort_degradation",
+      "checkpoint": "/mnt/ssd/data/ckpt/arin5201/reproduction/proposal_extension10_20261117/effort_degradation/best.pt",
+      "thresholds": "/mnt/ssd/data/logs/arin5201/reproduction/proposal_extension10_20261117/effort_degradation/thresholds.json",
+      "clean_scores": "/mnt/ssd/data/logs/arin5201/reproduction/proposal_extension10_20261117/effort_degradation/validation_scores.csv",
+      "best_epoch": 8,
+      "source_result_sha256": "fd959885045efd61fc431e65d942b1caff664da710aa2a2bcb91c75afa59021b",
+      "checkpoint_sha256": "d55d071d7b78e2a4151996c6fc2cf4c7f721accc0316ce0d984e33df5eb2f5a9",
+      "thresholds_sha256": "2a441de153fc1aea6297191332572b35b6dada89f21db47ae0c17757cfbe2248",
+      "clean_scores_sha256": "107a933ce8e88d9b8b82be29aad03922981d62b97f3d3ce19c7db75f6b80f7b8"
+    }
+  ],
+  "implementation_sha256": {
+    "/mnt/ssd/code/arin5201/reproduction/proposal/evaluate_degradations.py": "1c958fbefc9ef87262a1003a4b7263def9d92165b12106bf87dfa5a659553f37",
+    "/mnt/ssd/code/arin5201/reproduction/proposal/models.py": "2a194c7bc652ff9666f6c1e10e06983cb3ef8a7eb8abf451359d09afd27ce092",
+    "/mnt/ssd/code/arin5201/reproduction/proposal/run.py": "7cf6ac2b28f3c3fdff6a111b80ed80367b9259f1f0883782418b30823b36e1b2",
+    "/mnt/ssd/code/arin5201/reproduction/p1/models.py": "c1eba5460a642abc0653121d49f1556673991a55b15c5122396d0c3e4fbc676a",
+    "/mnt/ssd/code/arin5201/genimage_detector/metrics.py": "76d1fd933fe958f018c6dc8576f80fc86be47d693a29511111cb2b985c177e7d"
+  }
+}

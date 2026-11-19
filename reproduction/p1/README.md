@@ -1,0 +1,84 @@
+# P1/S0 方法验收与实测预算
+
+日期：2026-11-14。**24 个方法/配置完成 S0；IAPL TTA/OIS 单 GPU 验收通过。S1/S2 配方与预算已冻结，尚未启动正式训练，也未运行最终测试。**
+
+每组使用 4,000 张训练原图清单、固定 1,024 张验证子集，seed=42。冻结特征法一遍抽取并拟合 logistic regression，其余方法一 epoch。预热十 batch 后分别测得 115 或 240 个 batch，含数据加载和设备同步。所有 S0 指标仅作功能诊断，不作为正式效果排名。
+
+## 通过的检查
+
+- 训练/验证清单指纹及来源隔离，模型未加载最终测试数据。
+- 冻结特征的原生验证特征对照、分类器保存加载一致；神经网络 FP32/BF16 有限前后向、训练参数登记、train/eval、optimizer/RNG 磁盘一步回放、checkpoint 精确预测一致。
+- 18 个神经网络的 delta checkpoint 从原生冻结基座重建：遗漏基座逐张量哈希一致、所有 state 张量精确恢复、故意破坏参数/buffer 后预测精确回载；包括 nonpersistent buffers。
+- 从 24,576 条验证预测独立重算全部指标，逐图预测与固定阈值一致。六组冻结特征的 FPR 边界各修正一个 CSV 预测值（float32 比较曾舍入 float64 nextafter 阈值），分数、阈值和原汇总指标未变；原 CSV 保留。
+- IAPL：32 views、两步 TTA/OIS，32 原图×clean/JPEG70 共 64 样本（128 adaptation batches），逐图重置参数、buffers 和 optimizer；A→B→A 预测完全一致，冻结参数哈希未变，OIS-off 接口通过。
+
+## 实测成本
+
+训练项为完整训练 step 的图像/秒；冻结特征项为 FP32 特征提取图像/秒，**不含 CPU 分类器拟合**。FP32/BF16、输入 crop、骨干和双分支不同，不能把吞吐差异解释为同等计算下的效果。显存为 PyTorch peak allocated，非整卡总占用。
+
+| 配置 | 图像/秒 | 峰值显存 GiB | delta checkpoint MiB |
+|---|---:|---:|---:|
+| frozen_B32_resize | 715.9 | 0.45 | 0.00 |
+| frozen_B16_resize | 655.1 | 0.66 | 0.00 |
+| frozen_B16_crop128 | 1365.2 | 0.45 | 0.00 |
+| frozen_B16_resize_jpeg | 619.9 | 0.66 | 0.00 |
+| frozen_B16_crop128_jpeg | 1201.8 | 0.45 | 0.00 |
+| frozen_L14_resize | 166.9 | 1.68 | 0.00 |
+| effort_native | 127.9 | 1.84 | 2.63 |
+| lora_native | 124.2 | 1.86 | 18.27 |
+| effort | 127.2 | 1.84 | 2.63 |
+| effort_degradation | 127.4 | 1.84 | 2.63 |
+| dual_adapter | 98.2 | 3.03 | 72.94 |
+| dual_ssf | 104.5 | 2.95 | 1.38 |
+| frozen_only | 449.8 | 1.36 | 0.09 |
+| adapter_only | 124.8 | 1.90 | 72.87 |
+| ssf_only | 135.7 | 1.82 | 1.31 |
+| iapl | 59.7 | 7.51 | 455.47 |
+| effort_npr | 121.2 | 2.01 | 130.70 |
+| npr_only | 742.3 | 0.42 | 128.05 |
+| effort_rgb | 121.2 | 2.01 | 130.70 |
+| effort_npr_noaux | 121.4 | 2.01 | 130.67 |
+| resnet50 | 718.4 | 1.06 | 269.48 |
+| deit_s | 702.6 | 0.90 | 248.11 |
+| swin_t | 488.5 | 1.50 | 315.35 |
+| cnnspot | 665.6 | 1.06 | 269.48 |
+
+IAPL 完整 TTA/OIS 平均 **0.450 秒/图**，p95 0.456 秒，峰值 allocated 8.28 GiB。每图两次适配前向/反向加一次 OIS 推理，70 次视图呈现；时延含加载、增强和重置。此处阈值只有 16 张真实图支持，不能当作正式低 FPR 工作点。
+
+Frozen 的 learned_parameters 包含 logistic 系数和截距；Effort 的 frozen weight_main 是 buffer，因此另报 floating_model_state_elements，避免误称模型总规模缩小。Effort-NPR-noaux 保留作者的辅助 head 注册参数，但没有 optimizer state 的未使用参数另行计数。详见 throughput.csv / results.json。
+
+## S1/S2 冻结配方与预算
+
+`s1_s2_queue.json` 登记 **150 项**：24 配置×2 规模×3 seeds=144 项，另加 Effort/退化增强在 S2 上的 6 项固定 5,000 updates 对照。GPU 预算约 **65.6 小时**，包含 20% 重试余量及 IAPL 的 TTA validation/dev；是 S0 外推而非已运行成本。
+
+- seed 42/43/44；S1=16,000、S2=64,000；完整 validation=10,000，dev=8,000。
+- 神经网络统一先冻结 5 epochs、batch 16、accumulation 1；IAPL 保留一 epoch。checkpoint 以完整验证 AUROC 选择，之后固定三种阈值；不早停、不按测试源挑 checkpoint。
+- Frozen 用一次合法特征抽取、C=1/class_weight=balanced/max_iter=3000；CPU 拟合预算单列，不能伪装成神经网络等更新比较。
+- 原生 Effort/LoRA、NPR 和附加骨干的 S1/S2 配方为类均衡有放回抽样；其余为固定 seed 无放回顺序。NPR/附加骨干的 S0 无放回采样偏离已披露。
+- U 基础 Effort 与退化版的 crop/flip RNG 相同，退化选择独立；Thomas crop 与 JPEG RNG 独立。三组修正后重跑，先前结果保留在 attempts。
+- 两份 checkpoint/运行（best、last）采用验证后的 delta 格式，含 20% 余量约 **31.7 GiB**，特征与预测另留 **20 GiB**；现有 P0/P1 完整产物保留。
+
+**最终评估成本另计：** 按 19,000 原图×10 条件外推，完整 IAPL TTA 每个 checkpoint 约 **23.8 GPU 小时**；S1/S2 六个 checkpoint 合计约 142.6 小时，尚未加重试。它不包含在上述 P2 训练预算中。S3 和最终面板须在查看最终分数前结合预算冻结。
+
+## 交付边界与下一步
+
+可以进入 P2 的正式队列实现/运行；本轮未启动 P2。S0 不证明作者分数已经复现，也不证明未知来源泛化。RAISE/Mirage/EvalGEN/Wukong 缺失，D0→D3c、VAE twins、作者完整八源结果与可选 GAPL 仍未完成。完整中断恢复队列、正式多 seed 训练及最终统计属于后续阶段。
+
+新增训练结果均来自统一的 U S0 清单；原生 model/augmentation 接口验证不冒称精确 R 轨道复现。批量 16、双分支 BF16、seed/epoch/原图 RNG、SVD 缓存、采样差异与所有修复见 NOTES.md。
+
+## 文件与复查入口
+
+- `verification.json`：逐图重算与 checkpoint 哈希验收。
+- `results.json` / `throughput.csv`：方法级成本、参数和存储记录。
+- `delta_validation.json`、`checkpoint.py`：基座校验与增量恢复。
+- `s1_s2_queue.json`：已冻结、未启动的配方和逐项预算。
+- `P1_ACCEPTANCE.json`：最终验收及文件指纹。
+- 日志与完整预测：`/mnt/ssd/data/logs/arin5201/reproduction/p1_20261114/`。
+- 完整与 delta 权重：`/mnt/ssd/data/ckpt/arin5201/reproduction/p1_20261114/`。
+
+```bash
+bash reproduction/run.sh -m unittest discover -s reproduction/p1/tests -v
+bash reproduction/run.sh reproduction/p1/summarize.py
+```
+
+第二条只重算/核验已有产物并生成预算，不启动训练。原始失败、修正前结果及源码版本均保留。

@@ -1,0 +1,154 @@
+[
+  {
+    "repo": "openai/clip-vit-large-patch14",
+    "revision": "32bd64288804d66eefd0ccbe215aa642df71cc41",
+    "local_path": "/mnt/ssd/data/cache/arin5201/reproduction/weights/openai--clip-vit-large-patch14--32bd64288804",
+    "license": "MIT (OpenAI CLIP upstream; HF card does not declare)",
+    "files": [
+      {
+        "path": "/mnt/ssd/data/cache/arin5201/reproduction/weights/openai--clip-vit-large-patch14--32bd64288804/config.json",
+        "sha256": "8a09b467700c58138c29d53c605b34ebc69beaadd13274a8a2af8ad2c2f4032a",
+        "bytes": 4519,
+        "url": "https://huggingface.co/openai/clip-vit-large-patch14/resolve/32bd64288804d66eefd0ccbe215aa642df71cc41/config.json",
+        "upstream_lfs_sha256": null
+      },
+      {
+        "path": "/mnt/ssd/data/cache/arin5201/reproduction/weights/openai--clip-vit-large-patch14--32bd64288804/preprocessor_config.json",
+        "sha256": "910e70b3956ac9879ebc90b22fb3bc8a75b6a0677814500101a4c072bd7857bd",
+        "bytes": 316,
+        "url": "https://huggingface.co/openai/clip-vit-large-patch14/resolve/32bd64288804d66eefd0ccbe215aa642df71cc41/preprocessor_config.json",
+        "upstream_lfs_sha256": null
+      },
+      {
+        "path": "/mnt/ssd/data/cache/arin5201/reproduction/weights/openai--clip-vit-large-patch14--32bd64288804/model.safetensors",
+        "sha256": "a2bf730a0c7debf160f7a6b50b3aaf3703e7e88ac73de7a314903141db026dcb",
+        "bytes": 1710540580,
+        "url": "https://huggingface.co/openai/clip-vit-large-patch14/resolve/32bd64288804d66eefd0ccbe215aa642df71cc41/model.safetensors",
+        "upstream_lfs_sha256": "a2bf730a0c7debf160f7a6b50b3aaf3703e7e88ac73de7a314903141db026dcb"
+      },
+      {
+        "path": "/mnt/ssd/data/cache/arin5201/reproduction/weights/openai--clip-vit-large-patch14--32bd64288804/README.md",
+        "sha256": "de4274ec48590ab3aa1c239720ff55e99a37f4165c117ba3ad7af2b7df72687c",
+        "bytes": 7947,
+        "url": "https://huggingface.co/openai/clip-vit-large-patch14/resolve/32bd64288804d66eefd0ccbe215aa642df71cc41/README.md",
+        "upstream_lfs_sha256": null
+      }
+    ]
+  },
+  {
+    "repo": "openai/clip-vit-base-patch16",
+    "revision": "57c216476eefef5ab752ec549e440a49ae4ae5f3",
+    "local_path": "/mnt/ssd/data/cache/arin5201/reproduction/weights/openai--clip-vit-base-patch16--57c216476eef",
+    "license": "MIT (OpenAI CLIP upstream; HF card does not declare)",
+    "files": [
+      {
+        "path": "/mnt/ssd/data/cache/arin5201/reproduction/weights/openai--clip-vit-base-patch16--57c216476eef/config.json",
+        "sha256": "eaf1c9089a8553c913d27ea66407f8bfc2be9989c80c9f331ddb3d63d4c5e8ad",
+        "bytes": 4104,
+        "url": "https://huggingface.co/openai/clip-vit-base-patch16/resolve/57c216476eefef5ab752ec549e440a49ae4ae5f3/config.json",
+        "upstream_lfs_sha256": null
+      },
+      {
+        "path": "/mnt/ssd/data/cache/arin5201/reproduction/weights/openai--clip-vit-base-patch16--57c216476eef/preprocessor_config.json",
+        "sha256": "910e70b3956ac9879ebc90b22fb3bc8a75b6a0677814500101a4c072bd7857bd",
+        "bytes": 316,
+        "url": "https://huggingface.co/openai/clip-vit-base-patch16/resolve/57c216476eefef5ab752ec549e440a49ae4ae5f3/preprocessor_config.json",
+        "upstream_lfs_sha256": null
+      },
+      {
+        "path": "/mnt/ssd/data/cache/arin5201/reproduction/weights/openai--clip-vit-base-patch16--57c216476eef/pytorch_model.bin",
+        "sha256": "ec89c7b09c749a60aae3c9cd910516f24b58214a7df060b48962d14c469cfbf0",
+        "bytes": 598641023,
+        "url": "https://huggingface.co/openai/clip-vit-base-patch16/resolve/57c216476eefef5ab752ec549e440a49ae4ae5f3/pytorch_model.bin",
+        "upstream_lfs_sha256": "ec89c7b09c749a60aae3c9cd910516f24b58214a7df060b48962d14c469cfbf0"
+      },
+      {
+        "path": "/mnt/ssd/data/cache/arin5201/reproduction/weights/openai--clip-vit-base-patch16--57c216476eef/README.md",
+        "sha256": "7c3e9381bb204935093ea878541bfa84c9773ab924f0ea93a4f398c78660e197",
+        "bytes": 7928,
+        "url": "https://huggingface.co/openai/clip-vit-base-patch16/resolve/57c216476eefef5ab752ec549e440a49ae4ae5f3/README.md",
+        "upstream_lfs_sha256": null
+      }
+    ]
+  },
+  {
+    "repo": "openai/clip-vit-base-patch32",
+    "revision": "3d74acf9a28c67741b2f4f2ea7635f0aaf6f0268",
+    "local_path": "/mnt/ssd/data/cache/arin5201/reproduction/weights/openai--clip-vit-base-patch32--3d74acf9a28c",
+    "license": "MIT (OpenAI CLIP upstream; HF card does not declare)",
+    "files": [
+      {
+        "path": "/mnt/ssd/data/cache/arin5201/reproduction/weights/openai--clip-vit-base-patch32--3d74acf9a28c/config.json",
+        "sha256": "b575ef3c36f2a057fa19e221650105052d61cc9c1a972ec15019c6261ec98770",
+        "bytes": 4186,
+        "url": "https://huggingface.co/openai/clip-vit-base-patch32/resolve/3d74acf9a28c67741b2f4f2ea7635f0aaf6f0268/config.json",
+        "upstream_lfs_sha256": null
+      },
+      {
+        "path": "/mnt/ssd/data/cache/arin5201/reproduction/weights/openai--clip-vit-base-patch32--3d74acf9a28c/preprocessor_config.json",
+        "sha256": "910e70b3956ac9879ebc90b22fb3bc8a75b6a0677814500101a4c072bd7857bd",
+        "bytes": 316,
+        "url": "https://huggingface.co/openai/clip-vit-base-patch32/resolve/3d74acf9a28c67741b2f4f2ea7635f0aaf6f0268/preprocessor_config.json",
+        "upstream_lfs_sha256": null
+      },
+      {
+        "path": "/mnt/ssd/data/cache/arin5201/reproduction/weights/openai--clip-vit-base-patch32--3d74acf9a28c/pytorch_model.bin",
+        "sha256": "a63082132ba4f97a80bea76823f544493bffa8082296d62d71581a4feff1576f",
+        "bytes": 605247071,
+        "url": "https://huggingface.co/openai/clip-vit-base-patch32/resolve/3d74acf9a28c67741b2f4f2ea7635f0aaf6f0268/pytorch_model.bin",
+        "upstream_lfs_sha256": "a63082132ba4f97a80bea76823f544493bffa8082296d62d71581a4feff1576f"
+      },
+      {
+        "path": "/mnt/ssd/data/cache/arin5201/reproduction/weights/openai--clip-vit-base-patch32--3d74acf9a28c/README.md",
+        "sha256": "8f0e8c678e0afe5f384f3bf8a6694c1cb53c41e52f86277967b6c5354cb0f9f4",
+        "bytes": 7942,
+        "url": "https://huggingface.co/openai/clip-vit-base-patch32/resolve/3d74acf9a28c67741b2f4f2ea7635f0aaf6f0268/README.md",
+        "upstream_lfs_sha256": null
+      }
+    ]
+  },
+  {
+    "repo": "sd2-community/stable-diffusion-2-1",
+    "revision": "bb2154823665391b4fb29b0b9cf82a198964ee05",
+    "local_path": "/mnt/ssd/data/cache/arin5201/reproduction/weights/sd2-community--stable-diffusion-2-1--bb2154823665",
+    "license": "openrail++",
+    "files": [
+      {
+        "path": "/mnt/ssd/data/cache/arin5201/reproduction/weights/sd2-community--stable-diffusion-2-1--bb2154823665/vae/config.json",
+        "sha256": "d69281aa3f6a0f3c41aaf6778e35464fc6ee8a92e6ac8a8b1eb679f6df6423eb",
+        "bytes": 611,
+        "url": "https://huggingface.co/sd2-community/stable-diffusion-2-1/resolve/bb2154823665391b4fb29b0b9cf82a198964ee05/vae/config.json",
+        "upstream_lfs_sha256": null
+      },
+      {
+        "path": "/mnt/ssd/data/cache/arin5201/reproduction/weights/sd2-community--stable-diffusion-2-1--bb2154823665/vae/diffusion_pytorch_model.safetensors",
+        "sha256": "a1d993488569e928462932c8c38a0760b874d166399b14414135bd9c42df5815",
+        "bytes": 334643276,
+        "url": "https://huggingface.co/sd2-community/stable-diffusion-2-1/resolve/bb2154823665391b4fb29b0b9cf82a198964ee05/vae/diffusion_pytorch_model.safetensors",
+        "upstream_lfs_sha256": "a1d993488569e928462932c8c38a0760b874d166399b14414135bd9c42df5815"
+      },
+      {
+        "path": "/mnt/ssd/data/cache/arin5201/reproduction/weights/sd2-community--stable-diffusion-2-1--bb2154823665/README.md",
+        "sha256": "aa3dd57f8edabdc9c96d36430130acd8d30f709b23744d851077c8bc913f618f",
+        "bytes": 12400,
+        "url": "https://huggingface.co/sd2-community/stable-diffusion-2-1/resolve/bb2154823665391b4fb29b0b9cf82a198964ee05/README.md",
+        "upstream_lfs_sha256": null
+      }
+    ]
+  },
+  {
+    "repo": "OpenAI CLIP original JIT",
+    "revision": "b8cca3fd41ae0c99ba7e8951adf17d267cdb84cd88be6f7c2e0eca1737a03836",
+    "local_path": "/mnt/ssd/data/cache/arin5201/reproduction/weights/openai-jit",
+    "license": "MIT",
+    "files": [
+      {
+        "path": "/mnt/ssd/data/cache/arin5201/reproduction/weights/openai-jit/ViT-L-14.pt",
+        "sha256": "b8cca3fd41ae0c99ba7e8951adf17d267cdb84cd88be6f7c2e0eca1737a03836",
+        "bytes": 932768134,
+        "url": "https://openaipublic.azureedge.net/clip/models/b8cca3fd41ae0c99ba7e8951adf17d267cdb84cd88be6f7c2e0eca1737a03836/ViT-L-14.pt",
+        "upstream_lfs_sha256": "b8cca3fd41ae0c99ba7e8951adf17d267cdb84cd88be6f7c2e0eca1737a03836"
+      }
+    ]
+  }
+]

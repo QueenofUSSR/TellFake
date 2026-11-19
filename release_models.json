@@ -1,0 +1,107 @@
+{
+  "tag": "p3-20261119",
+  "assets": [
+    {
+      "name": "frozen_L14_resize_seed42.pkl",
+      "sha256": "f32999f423255e8d87a2b9aefeadbf4c8ee1ff44286ab0e35d1bbc52131fd0eb",
+      "bytes": 3781,
+      "kind": "trained"
+    },
+    {
+      "name": "effort_seed42.pt",
+      "sha256": "d125eadfa335bb0c29729602096c002f99930035f513808bcdb791711c557d8c",
+      "bytes": 1215708730,
+      "kind": "trained"
+    },
+    {
+      "name": "effort_degradation_seed42.pt",
+      "sha256": "7d326deda29a917e32e1dd434e06f5d806c09c7f34b96270d4e5491e7f52c189",
+      "bytes": 1215710906,
+      "kind": "trained"
+    },
+    {
+      "name": "frozen_L14_resize_seed43.pkl",
+      "sha256": "79fb277a8a1489300ac466a1d64eaeeac4bcb8a46e763d8d4f5039063670d19d",
+      "bytes": 3781,
+      "kind": "trained"
+    },
+    {
+      "name": "effort_seed43.pt",
+      "sha256": "9c0e0fa8f1c69ee25a719f49a4dbbb28092f92177d2dccf9a522e4b3a0b2019b",
+      "bytes": 1215707322,
+      "kind": "trained"
+    },
+    {
+      "name": "effort_degradation_seed43.pt",
+      "sha256": "e4922ad9ad02e92617ada143bf828c5db658f7a3cca1bac3bdf83e0155b47ac2",
+      "bytes": 1215710906,
+      "kind": "trained"
+    },
+    {
+      "name": "frozen_L14_resize_seed44.pkl",
+      "sha256": "7ede978d5123025331f127d95a5f2da108de45000555f0b5c0f68f080b308f12",
+      "bytes": 3781,
+      "kind": "trained"
+    },
+    {
+      "name": "effort_seed44.pt",
+      "sha256": "23a59f652da58b004730aaa4f5886a23bb324d869715fa44d52dfe111814496c",
+      "bytes": 1215708026,
+      "kind": "trained"
+    },
+    {
+      "name": "effort_degradation_seed44.pt",
+      "sha256": "edd2acfc1e17ad2fde780b8328a39f320bd33a3db7b2724a8433ba804cc2c921",
+      "bytes": 1215710906,
+      "kind": "trained"
+    },
+    {
+      "name": "resnet50_seed42.pt",
+      "sha256": "41d41bc355a3bbf080cdc9d465d5dd4fae9ebf34d1828a305bd071ae9ceda94b",
+      "bytes": 282614573,
+      "kind": "trained"
+    },
+    {
+      "name": "deit_s_seed42.pt",
+      "sha256": "a856f21294cbdb9c57e7585af1ffddf921cd9d82df06dac6a5658807a64dee38",
+      "bytes": 260202748,
+      "kind": "trained"
+    },
+    {
+      "name": "swin_t_seed42.pt",
+      "sha256": "5ee55df629bebf3469f415a0bc71108b1689b9321fc6f91c869624ada3f0803e",
+      "bytes": 330713436,
+      "kind": "trained"
+    },
+    {
+      "name": "cnnspot_seed42.pt",
+      "sha256": "00b4cf863f28bbd56b4178b97990f7e827b8f541496e68a7626ee1323663625c",
+      "bytes": 282614637,
+      "kind": "trained"
+    },
+    {
+      "name": "config.json",
+      "sha256": "8a09b467700c58138c29d53c605b34ebc69beaadd13274a8a2af8ad2c2f4032a",
+      "bytes": 4519,
+      "kind": "pretrained"
+    },
+    {
+      "name": "preprocessor_config.json",
+      "sha256": "910e70b3956ac9879ebc90b22fb3bc8a75b6a0677814500101a4c072bd7857bd",
+      "bytes": 316,
+      "kind": "pretrained"
+    },
+    {
+      "name": "model.safetensors",
+      "sha256": "a2bf730a0c7debf160f7a6b50b3aaf3703e7e88ac73de7a314903141db026dcb",
+      "bytes": 1710540580,
+      "kind": "pretrained"
+    },
+    {
+      "name": "clip-L14-README.md",
+      "sha256": "de4274ec48590ab3aa1c239720ff55e99a37f4165c117ba3ad7af2b7df72687c",
+      "bytes": 7947,
+      "kind": "pretrained"
+    }
+  ]
+}

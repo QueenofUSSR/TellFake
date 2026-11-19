@@ -1,0 +1,47 @@
+[
+  {
+    "model": "resnet18",
+    "url": "https://download.pytorch.org/models/resnet18-f37072fd.pth",
+    "path": "/mnt/ssd/cache/torch/hub/checkpoints/resnet18-f37072fd.pth",
+    "sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
+    "bytes": 46830571,
+    "version": "ResNet18_Weights.IMAGENET1K_V1",
+    "license_note": "torchvision code BSD; pretrained ImageNet weights retain dataset usage constraints"
+  },
+  {
+    "model": "resnet50_v1",
+    "url": "https://download.pytorch.org/models/resnet50-0676ba61.pth",
+    "path": "/mnt/ssd/cache/torch/hub/checkpoints/resnet50-0676ba61.pth",
+    "sha256": "0676ba61b6795bbe1773cffd859882e5e297624d384b6993f7c9e683e722fb8a",
+    "bytes": 102530333,
+    "version": "ResNet50_Weights.IMAGENET1K_V1",
+    "license_note": "torchvision code BSD; pretrained ImageNet weights retain dataset usage constraints"
+  },
+  {
+    "model": "resnet50_v2",
+    "url": "https://download.pytorch.org/models/resnet50-11ad3fa6.pth",
+    "path": "/mnt/ssd/cache/torch/hub/checkpoints/resnet50-11ad3fa6.pth",
+    "sha256": "11ad3fa62ca79e40addfd354a8ec4b7c75143b3038b8d2a807fbc68deab379ca",
+    "bytes": 102540417,
+    "version": "ResNet50_Weights.IMAGENET1K_V2",
+    "license_note": "torchvision code BSD; pretrained ImageNet weights retain dataset usage constraints"
+  },
+  {
+    "model": "swin_t",
+    "url": "https://download.pytorch.org/models/swin_t-704ceda3.pth",
+    "path": "/mnt/ssd/cache/torch/hub/checkpoints/swin_t-704ceda3.pth",
+    "sha256": "704ceda373461b0a224fcdddd75cd2a5e9f8064512ed47adbddef7f343fd147b",
+    "bytes": 113445839,
+    "version": "Swin_T_Weights.IMAGENET1K_V1",
+    "license_note": "torchvision code BSD; pretrained ImageNet weights retain dataset usage constraints"
+  },
+  {
+    "model": "deit_s",
+    "repo": "timm/deit_small_patch16_224.fb_in1k",
+    "revision": "91327a9c99f98fe6b524cd4d397b7226b80e1365",
+    "path": "/mnt/ssd/data/cache/arin5201/reproduction/backbones/deit_s_91327a9c99f98fe6b524cd4d397b7226b80e1365.safetensors",
+    "sha256": "1e747b4a8d0df2cfbd3c450e8c97685d867448ab0c2ddbfb34b6885f5cb23e5b",
+    "bytes": 88216496,
+    "license": "apache-2.0"
+  }
+]

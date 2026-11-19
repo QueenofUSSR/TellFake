@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "prediction_files": 288,
+  "rows": 1871640,
+  "unique_images": 15995,
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "base_fingerprints": {
+    "train": "0cf34c5bdafdd040a591d41af7d3c63837cebaa4bceaf42b7d0b2153c2f2e400",
+    "val": "ec9a933ada365c6e6aea3e9444c3d411a4b0fe993fb87e5671f5040f3ad702c3",
+    "dev": "5765afdc53aa5247b03ebac830e9857dbe05bad5d821bbe8aaae3f18b443cf37",
+    "seen_test": "a152ac194acf7f09f07e3b3279a55f83e67391aaef9952aeb953648f2aca643c",
+    "unseen_test": "4895330fd1b972f340734648dec856024b4b30361927bf2e20bca667ef179dcf",
+    "real_test": "b50dafc7c41c48458482035b7ba61eef996c0455e19c784262ee97f6d766d767"
+  },
+  "supplement_fingerprints": {
+    "external_real_test": "cd5ce51db99c476e0924da05e492ada7804b2a5673da2ed9ff427a2ef1ac4dba",
+    "midjourney_test": "67513e75b5a293b9324f3646c045869df78aa357640388f9f781f14145e82a86"
+  },
+  "final_run_count": 9
+}

@@ -1,0 +1,6 @@
+# torch 2.5.1+cu124, torchvision 0.20.1+cu124 and Pillow come from the base image.
+numpy==2.1.3
+scipy==1.14.1
+scikit-learn==1.5.2
+joblib==1.4.2
+threadpoolctl==3.5.0

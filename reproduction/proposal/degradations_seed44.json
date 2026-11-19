@@ -1,0 +1,68 @@
+{
+  "scope": "seen validation only; no fitting or adaptation",
+  "validation_manifest": "/mnt/ssd/code/arin5201/reproduction/manifests/v1_20261114/val.csv",
+  "validation_sha256": "bdb4e4435565eb916d229bbe22e472176d6b880a45ade38e98a245e3ef9266ce",
+  "output_root": "/mnt/ssd/data/logs/arin5201/reproduction/main64k_degradations_seed44",
+  "conditions": [
+    "jpeg90",
+    "jpeg70",
+    "jpeg50",
+    "blur0.5",
+    "blur1",
+    "blur2",
+    "downsample0.75",
+    "downsample0.5",
+    "downsample0.25"
+  ],
+  "degradation_order": "EXIF transpose/RGB -> one degradation -> common geometry -> normalize",
+  "jpeg_subsampling": 2,
+  "interpolation": "PIL bicubic downsample then restore original size",
+  "threshold_policy": "Reuse each model clean validation thresholds unchanged; do not select new checkpoints or refit",
+  "final_test_access": false,
+  "models": [
+    {
+      "method": "frozen_L14_resize",
+      "checkpoint": "/mnt/ssd/data/ckpt/arin5201/reproduction/proposal_main64k_seed44_20261118/frozen_L14_resize/classifier.pkl",
+      "thresholds": "/mnt/ssd/data/logs/arin5201/reproduction/proposal_main64k_seed44_20261118/frozen_L14_resize/thresholds.json",
+      "clean_scores": "/mnt/ssd/data/logs/arin5201/reproduction/proposal_main64k_seed44_20261118/frozen_L14_resize/validation_scores.csv",
+      "best_epoch": null,
+      "source_result_sha256": "72f9db3dfbe173d00af1a6e61b4a6ebbd2295a3c6aaa5ed62f7017b8f86a5828",
+      "checkpoint_sha256": "7ede978d5123025331f127d95a5f2da108de45000555f0b5c0f68f080b308f12",
+      "thresholds_sha256": "725355ca32d629c38ea4a2672f3f144e9676236352ed39337b89aa99fe2af6e9",
+      "clean_scores_sha256": "53ebee30fe03524f43b9ce190ae7d7815f0ef39c5e05c753b3fe1b928d5a8efa"
+    },
+    {
+      "method": "effort",
+      "checkpoint": "/mnt/ssd/data/ckpt/arin5201/reproduction/proposal_main64k_seed44_20261118/effort/best.pt",
+      "thresholds": "/mnt/ssd/data/logs/arin5201/reproduction/proposal_main64k_seed44_20261118/effort/thresholds.json",
+      "clean_scores": "/mnt/ssd/data/logs/arin5201/reproduction/proposal_main64k_seed44_20261118/effort/validation_scores.csv",
+      "best_epoch": 5,
+      "source_result_sha256": "e5b68ddf2d0631d3a6854d03d8f2f69d5bb040557e9cf44757b0042213c2c272",
+      "checkpoint_sha256": "23a59f652da58b004730aaa4f5886a23bb324d869715fa44d52dfe111814496c",
+      "thresholds_sha256": "ed3934f33087a38f15e65688c26e856fdd85916f51d6bf604cf629c766d48c36",
+      "clean_scores_sha256": "52468bbc5e4bc8c3e621414d2eaa7b938fcd932da18ef17ec9f7eb47e9746fe4"
+    },
+    {
+      "method": "effort_degradation",
+      "checkpoint": "/mnt/ssd/data/ckpt/arin5201/reproduction/proposal_main64k_seed44_20261118/effort_degradation/best.pt",
+      "thresholds": "/mnt/ssd/data/logs/arin5201/reproduction/proposal_main64k_seed44_20261118/effort_degradation/thresholds.json",
+      "clean_scores": "/mnt/ssd/data/logs/arin5201/reproduction/proposal_main64k_seed44_20261118/effort_degradation/validation_scores.csv",
+      "best_epoch": 9,
+      "source_result_sha256": "93d0631e0d627510fb1792497a8aef226f45a059190892effb0c3213f33cfa5a",
+      "checkpoint_sha256": "edd2acfc1e17ad2fde780b8328a39f320bd33a3db7b2724a8433ba804cc2c921",
+      "thresholds_sha256": "ecd4ab71536762590f981ca1a08c476ecb247b018ae1733ceaedb444cb69bcd7",
+      "clean_scores_sha256": "1174bdb8df7d94ed261c0938b6ae626834f76ff782408569cbaa1d200f38204b"
+    }
+  ],
+  "implementation_sha256": {
+    "/mnt/ssd/code/arin5201/reproduction/proposal/evaluate_degradations.py": "1c958fbefc9ef87262a1003a4b7263def9d92165b12106bf87dfa5a659553f37",
+    "/mnt/ssd/code/arin5201/reproduction/proposal/models.py": "2a194c7bc652ff9666f6c1e10e06983cb3ef8a7eb8abf451359d09afd27ce092",
+    "/mnt/ssd/code/arin5201/reproduction/proposal/run.py": "7cf6ac2b28f3c3fdff6a111b80ed80367b9259f1f0883782418b30823b36e1b2",
+    "/mnt/ssd/code/arin5201/reproduction/p1/models.py": "c1eba5460a642abc0653121d49f1556673991a55b15c5122396d0c3e4fbc676a",
+    "/mnt/ssd/code/arin5201/genimage_detector/metrics.py": "76d1fd933fe958f018c6dc8576f80fc86be47d693a29511111cb2b985c177e7d",
+    "/mnt/ssd/code/arin5201/reproduction/proposal/evaluate_degradations64k.py": "eb22fdc02bc19daec90e5d503e90012f4d9461984e1ea677ce1b082a9be983f3",
+    "/mnt/ssd/code/arin5201/reproduction/proposal/evaluate_degradations_repeats.py": "ebf37ccb44661774b43581c9522ff0fcac932222c6aa3fcbecf68c902ae9d9c4"
+  },
+  "training_scale": 64000,
+  "seed": 44
+}

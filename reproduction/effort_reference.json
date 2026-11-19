@@ -1,0 +1,7 @@
+{
+  "repository": "YZY-stack/Effort-AIGI-Detection",
+  "commit": "96f5dea2b534d400cfd7003f053c7e93c8e16461",
+  "upstream_file": "DeepfakeBench/training/detectors/effort_detector.py",
+  "file": "/mnt/ssd/data/cache/arin5201/reproduction/effort_official/effort_detector.py",
+  "sha256": "366b1cde008f537e4b9c8c8e4c65ee20b430c4bca1ccee1b1b86c20a9831fac9"
+}

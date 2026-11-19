@@ -1,0 +1,69 @@
+{
+  "schema_version": 3,
+  "seed": 42,
+  "data_root": "/mnt/ssd/data/datasets/GenImage/official_v3",
+  "seen_generators": [
+    "BigGAN",
+    "SD15"
+  ],
+  "unseen_generators": [
+    "VQDM"
+  ],
+  "reserved_unavailable_generators": [
+    "Midjourney"
+  ],
+  "counts": {
+    "train": {
+      "BigGAN": 4000,
+      "SD15": 4000,
+      "Real": 8000
+    },
+    "val": {
+      "BigGAN": 1000,
+      "Real": 5000,
+      "SD15": 1000
+    },
+    "dev": {
+      "Real": 2000,
+      "BigGAN": 1000,
+      "SD15": 1000
+    },
+    "seen_test": {
+      "SD15": 1000,
+      "BigGAN": 1000
+    },
+    "unseen_test": {
+      "VQDM": 2000
+    },
+    "real_test": {
+      "Real": 5000
+    }
+  },
+  "manifest_sha256": {
+    "train": "0cf34c5bdafdd040a591d41af7d3c63837cebaa4bceaf42b7d0b2153c2f2e400",
+    "val": "ec9a933ada365c6e6aea3e9444c3d411a4b0fe993fb87e5671f5040f3ad702c3",
+    "dev": "5765afdc53aa5247b03ebac830e9857dbe05bad5d821bbe8aaae3f18b443cf37",
+    "seen_test": "a152ac194acf7f09f07e3b3279a55f83e67391aaef9952aeb953648f2aca643c",
+    "unseen_test": "4895330fd1b972f340734648dec856024b4b30361927bf2e20bca667ef179dcf",
+    "real_test": "b50dafc7c41c48458482035b7ba61eef996c0455e19c784262ee97f6d766d767"
+  },
+  "audit": {
+    "candidate_count": 50000,
+    "decoded_count": 50000,
+    "near_pairs": 337,
+    "excluded_mixed_component_images": 182,
+    "historical_v2_excluded": true,
+    "near_duplicate_method": "64-bit dHash Hamming <=4; entire connected components contribute at most one image",
+    "limitations": [
+      "Candidate-subset pixel/near audit, not full reserve audit",
+      "dHash cannot guarantee absence of crops or all derived images",
+      "Source layout/metadata provide labels; no independent content provenance certification",
+      "One unseen generator available; Midjourney and 5000 external real images still missing",
+      "Random image sampling; no verified semantic class mapping across generators"
+    ]
+  },
+  "policy": "Official train only for train/val/dev; official val only for tests. One global original-identity pool; byte/pixel/near component exclusion before split. Shared real_test scored once; unseen/seen tests are AI-only manifests.",
+  "checkpoint_rule": "max validation AUROC, tie lower BCE",
+  "threshold_rule": "lowest threshold with empirical validation real FPR <= 0.01, ties conservative",
+  "final_tests_opened_for_model_selection": false
+}

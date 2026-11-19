@@ -1,0 +1,38 @@
+{
+  "status": "passed",
+  "protocol_sha256": "a5064830474d22a3a3b85631c003d2a25163a6e05c45bb0500bb8d4c547fce5c",
+  "unique_selected": 197000,
+  "counts": {
+    "val": 10000,
+    "dev": 8000,
+    "train_S3": 128000,
+    "train_S2": 64000,
+    "train_S1": 16000,
+    "train_S0": 4000,
+    "test_real": 5000,
+    "test_SD14": 2000,
+    "test_BigGAN": 2000,
+    "test_ADM": 2000,
+    "test_GLIDE": 2000,
+    "test_SD15": 2000,
+    "test_VQDM": 2000,
+    "test_Midjourney_subset": 2000,
+    "R_ADM_train_pool": 16000,
+    "R_SD14_train_extra": 16000
+  },
+  "checks": [
+    "frozen manifest SHA256",
+    "nested S0/S1/S2/S3",
+    "balanced real/fake and seen sources",
+    "source official train/val boundaries",
+    "identity/group/file/pixel disjointness",
+    "historical manifest exclusions",
+    "independent exhaustive dHash <=4 exclusion",
+    "post-audit size/mtime unchanged"
+  ],
+  "limitations": [
+    "dHash is not crop-invariant or a semantic duplicate guarantee",
+    "Reserve outside candidate set not fully pixel-audited this round",
+    "Confirmation sets remain in previously studied domains"
+  ]
+}

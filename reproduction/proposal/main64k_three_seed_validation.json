@@ -1,0 +1,463 @@
+{
+  "scope": "64k, clean seen validation, shared 10000 images",
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "metric_units": "fractions; BA and real_fpr at 0.5; FPR01 fitted on clean validation",
+  "per_run": {
+    "frozen_L14_resize": [
+      {
+        "seed": 42,
+        "metrics": {
+          "auroc": 0.99978776,
+          "balanced_accuracy": 0.994,
+          "real_fpr": 0.0058,
+          "recall": 0.9938,
+          "average_precision": 0.9997835038913667,
+          "f1": 0.993998799759952,
+          "recall_at_FPR01": 0.9976,
+          "SD14_AUROC": 0.9996392,
+          "BigGAN_AUROC": 0.99993632
+        },
+        "fp": 29,
+        "fn": 31,
+        "best_epoch": null,
+        "source": "/mnt/ssd/data/logs/arin5201/reproduction/proposal_scale64k_20261117/frozen_L14_resize/result.json"
+      },
+      {
+        "seed": 43,
+        "metrics": {
+          "auroc": 0.9997688800000001,
+          "balanced_accuracy": 0.9938,
+          "real_fpr": 0.0056,
+          "recall": 0.9932,
+          "average_precision": 0.9997645349456652,
+          "f1": 0.99379627776666,
+          "recall_at_FPR01": 0.9966,
+          "SD14_AUROC": 0.99958576,
+          "BigGAN_AUROC": 0.9999520000000001
+        },
+        "fp": 28,
+        "fn": 34,
+        "best_epoch": null,
+        "source": "/mnt/ssd/data/logs/arin5201/reproduction/proposal_main64k_seed43_20261118/frozen_L14_resize/result.json"
+      },
+      {
+        "seed": 44,
+        "metrics": {
+          "auroc": 0.99978004,
+          "balanced_accuracy": 0.9942,
+          "real_fpr": 0.0058,
+          "recall": 0.9942,
+          "average_precision": 0.9997730948239767,
+          "f1": 0.9942,
+          "recall_at_FPR01": 0.9974,
+          "SD14_AUROC": 0.9996204,
+          "BigGAN_AUROC": 0.99993968
+        },
+        "fp": 29,
+        "fn": 29,
+        "best_epoch": null,
+        "source": "/mnt/ssd/data/logs/arin5201/reproduction/proposal_main64k_seed44_20261118/frozen_L14_resize/result.json"
+      }
+    ],
+    "effort": [
+      {
+        "seed": 42,
+        "metrics": {
+          "auroc": 1.0,
+          "balanced_accuracy": 0.9999,
+          "real_fpr": 0.0002,
+          "recall": 1.0,
+          "average_precision": 1.0,
+          "f1": 0.9999000099990001,
+          "recall_at_FPR01": 1.0,
+          "SD14_AUROC": 1.0,
+          "BigGAN_AUROC": 1.0
+        },
+        "fp": 1,
+        "fn": 0,
+        "best_epoch": 6,
+        "source": "/mnt/ssd/data/logs/arin5201/reproduction/proposal_scale64k_20261117/effort/result.json"
+      },
+      {
+        "seed": 43,
+        "metrics": {
+          "auroc": 1.0,
+          "balanced_accuracy": 0.9996,
+          "real_fpr": 0.0008,
+          "recall": 1.0,
+          "average_precision": 1.0,
+          "f1": 0.9996001599360256,
+          "recall_at_FPR01": 1.0,
+          "SD14_AUROC": 1.0,
+          "BigGAN_AUROC": 1.0
+        },
+        "fp": 4,
+        "fn": 0,
+        "best_epoch": 4,
+        "source": "/mnt/ssd/data/logs/arin5201/reproduction/proposal_main64k_seed43_20261118/effort/result.json"
+      },
+      {
+        "seed": 44,
+        "metrics": {
+          "auroc": 1.0,
+          "balanced_accuracy": 0.9997,
+          "real_fpr": 0.0006,
+          "recall": 1.0,
+          "average_precision": 1.0,
+          "f1": 0.9997000899730081,
+          "recall_at_FPR01": 1.0,
+          "SD14_AUROC": 1.0,
+          "BigGAN_AUROC": 0.9999999999999999
+        },
+        "fp": 3,
+        "fn": 0,
+        "best_epoch": 5,
+        "source": "/mnt/ssd/data/logs/arin5201/reproduction/proposal_main64k_seed44_20261118/effort/result.json"
+      }
+    ],
+    "effort_degradation": [
+      {
+        "seed": 42,
+        "metrics": {
+          "auroc": 0.9999956799999998,
+          "balanced_accuracy": 0.9994000000000001,
+          "real_fpr": 0.0008,
+          "recall": 0.9996,
+          "average_precision": 0.9999957249247624,
+          "f1": 0.9994001199760048,
+          "recall_at_FPR01": 0.9998,
+          "SD14_AUROC": 0.9999996000000001,
+          "BigGAN_AUROC": 0.9999917600000001
+        },
+        "fp": 4,
+        "fn": 2,
+        "best_epoch": 9,
+        "source": "/mnt/ssd/data/logs/arin5201/reproduction/proposal_scale64k_20261117/effort_degradation/result.json"
+      },
+      {
+        "seed": 43,
+        "metrics": {
+          "auroc": 0.9999992,
+          "balanced_accuracy": 0.9995,
+          "real_fpr": 0.0008,
+          "recall": 0.9998,
+          "average_precision": 0.9999992020814467,
+          "f1": 0.9995001499550135,
+          "recall_at_FPR01": 1.0,
+          "SD14_AUROC": 0.9999996800000001,
+          "BigGAN_AUROC": 0.99999872
+        },
+        "fp": 4,
+        "fn": 1,
+        "best_epoch": 9,
+        "source": "/mnt/ssd/data/logs/arin5201/reproduction/proposal_main64k_seed43_20261118/effort_degradation/result.json"
+      },
+      {
+        "seed": 44,
+        "metrics": {
+          "auroc": 0.99999416,
+          "balanced_accuracy": 0.9972000000000001,
+          "real_fpr": 0.0054,
+          "recall": 0.9998,
+          "average_precision": 0.999994120397996,
+          "f1": 0.9972072611210852,
+          "recall_at_FPR01": 0.9998,
+          "SD14_AUROC": 0.9999985199999999,
+          "BigGAN_AUROC": 0.9999898
+        },
+        "fp": 27,
+        "fn": 1,
+        "best_epoch": 9,
+        "source": "/mnt/ssd/data/logs/arin5201/reproduction/proposal_main64k_seed44_20261118/effort_degradation/result.json"
+      }
+    ]
+  },
+  "summary": {
+    "frozen_L14_resize": {
+      "auroc": {
+        "mean": 0.9997788933333334,
+        "sample_sd": 9.492087933258709e-06
+      },
+      "balanced_accuracy": {
+        "mean": 0.994,
+        "sample_sd": 0.00019999999999997797
+      },
+      "real_fpr": {
+        "mean": 0.005733333333333333,
+        "sample_sd": 0.00011547005383792495
+      },
+      "recall": {
+        "mean": 0.9937333333333334,
+        "sample_sd": 0.00050332229568472
+      },
+      "average_precision": {
+        "mean": 0.9997737112203362,
+        "sample_sd": 9.499483333890597e-06
+      },
+      "f1": {
+        "mean": 0.9939983591755374,
+        "sample_sd": 0.00020186147727889995
+      },
+      "recall_at_FPR01": {
+        "mean": 0.9972,
+        "sample_sd": 0.0005291502622129018
+      },
+      "SD14_AUROC": {
+        "mean": 0.99961512,
+        "sample_sd": 2.7108434111894173e-05
+      },
+      "BigGAN_AUROC": {
+        "mean": 0.9999426666666666,
+        "sample_sd": 8.25564857137192e-06
+      }
+    },
+    "effort": {
+      "auroc": {
+        "mean": 1.0,
+        "sample_sd": 0.0
+      },
+      "balanced_accuracy": {
+        "mean": 0.9997333333333334,
+        "sample_sd": 0.00015275252316517785
+      },
+      "real_fpr": {
+        "mean": 0.0005333333333333334,
+        "sample_sd": 0.00030550504633038936
+      },
+      "recall": {
+        "mean": 1.0,
+        "sample_sd": 0.0
+      },
+      "average_precision": {
+        "mean": 1.0,
+        "sample_sd": 0.0
+      },
+      "f1": {
+        "mean": 0.9997334199693446,
+        "sample_sd": 0.0001526783598231822
+      },
+      "recall_at_FPR01": {
+        "mean": 1.0,
+        "sample_sd": 0.0
+      },
+      "SD14_AUROC": {
+        "mean": 1.0,
+        "sample_sd": 0.0
+      },
+      "BigGAN_AUROC": {
+        "mean": 1.0,
+        "sample_sd": 6.409875621278546e-17
+      }
+    },
+    "effort_degradation": {
+      "auroc": {
+        "mean": 0.9999963466666666,
+        "sample_sd": 2.5852917308218828e-06
+      },
+      "balanced_accuracy": {
+        "mean": 0.9987,
+        "sample_sd": 0.001299999999999985
+      },
+      "real_fpr": {
+        "mean": 0.0023333333333333335,
+        "sample_sd": 0.0026558112382722788
+      },
+      "recall": {
+        "mean": 0.9997333333333334,
+        "sample_sd": 0.00011547005383791243
+      },
+      "average_precision": {
+        "mean": 0.999996349134735,
+        "sample_sd": 2.5977115391640772e-06
+      },
+      "f1": {
+        "mean": 0.9987025103507011,
+        "sample_sd": 0.0012958893444949236
+      },
+      "recall_at_FPR01": {
+        "mean": 0.9998666666666667,
+        "sample_sd": 0.00011547005383791243
+      },
+      "SD14_AUROC": {
+        "mean": 0.9999992666666667,
+        "sample_sd": 6.478682994804976e-07
+      },
+      "BigGAN_AUROC": {
+        "mean": 0.9999934266666667,
+        "sample_sd": 4.687742882564291e-06
+      }
+    }
+  },
+  "paired_differences": {
+    "effort minus frozen_L14_resize": {
+      "auroc": {
+        "per_seed": [
+          0.00021223999999997467,
+          0.00023111999999991806,
+          0.00021996000000001903
+        ],
+        "mean": 0.00022110666666663725,
+        "sample_sd": 9.492087933258709e-06
+      },
+      "balanced_accuracy": {
+        "per_seed": [
+          0.005900000000000016,
+          0.005800000000000027,
+          0.00550000000000006
+        ],
+        "mean": 0.005733333333333368,
+        "sample_sd": 0.00020816659994659034
+      },
+      "real_fpr": {
+        "per_seed": [
+          -0.0056,
+          -0.0048,
+          -0.0052
+        ],
+        "mean": -0.0052,
+        "sample_sd": 0.0004000000000000002
+      },
+      "recall": {
+        "per_seed": [
+          0.006199999999999983,
+          0.006800000000000028,
+          0.005800000000000027
+        ],
+        "mean": 0.00626666666666668,
+        "sample_sd": 0.00050332229568472
+      },
+      "average_precision": {
+        "per_seed": [
+          0.0002164961086332795,
+          0.0002354650543348047,
+          0.0002269051760233065
+        ],
+        "mean": 0.0002262887796637969,
+        "sample_sd": 9.499483333890597e-06
+      },
+      "f1": {
+        "per_seed": [
+          0.005901210239048105,
+          0.0058038821693655596,
+          0.005500089973008104
+        ],
+        "mean": 0.005735060793807256,
+        "sample_sd": 0.00020922871040395712
+      },
+      "recall_at_FPR01": {
+        "per_seed": [
+          0.0023999999999999577,
+          0.0033999999999999586,
+          0.0026000000000000467
+        ],
+        "mean": 0.002799999999999988,
+        "sample_sd": 0.0005291502622129018
+      },
+      "SD14_AUROC": {
+        "per_seed": [
+          0.00036080000000004997,
+          0.00041424000000001016,
+          0.00037960000000003546
+        ],
+        "mean": 0.00038488000000003186,
+        "sample_sd": 2.7108434111894173e-05
+      },
+      "BigGAN_AUROC": {
+        "per_seed": [
+          6.36800000000104e-05,
+          4.799999999993698e-05,
+          6.031999999989157e-05
+        ],
+        "mean": 5.733333333327965e-05,
+        "sample_sd": 8.255648571351837e-06
+      }
+    },
+    "effort_degradation minus effort": {
+      "auroc": {
+        "per_seed": [
+          -4.320000000168633e-06,
+          -8.000000000230045e-07,
+          -5.840000000034706e-06
+        ],
+        "mean": -3.6533333334087814e-06,
+        "sample_sd": 2.5852917308218828e-06
+      },
+      "balanced_accuracy": {
+        "per_seed": [
+          -0.0004999999999999449,
+          -9.999999999998899e-05,
+          -0.0024999999999999467
+        ],
+        "mean": -0.0010333333333332935,
+        "sample_sd": 0.0012858201014657124
+      },
+      "real_fpr": {
+        "per_seed": [
+          0.0006000000000000001,
+          0.0,
+          0.0048000000000000004
+        ],
+        "mean": 0.0018000000000000002,
+        "sample_sd": 0.002615339366124404
+      },
+      "recall": {
+        "per_seed": [
+          -0.00039999999999995595,
+          -0.00019999999999997797,
+          -0.00019999999999997797
+        ],
+        "mean": -0.0002666666666666373,
+        "sample_sd": 0.00011547005383791243
+      },
+      "average_precision": {
+        "per_seed": [
+          -4.275075237591963e-06,
+          -7.979185533413258e-07,
+          -5.879602004044138e-06
+        ],
+        "mean": -3.6508652649924755e-06,
+        "sample_sd": 2.5977115391640772e-06
+      },
+      "f1": {
+        "per_seed": [
+          -0.0004998900229953307,
+          -0.00010000998101211689,
+          -0.0024928288519229236
+        ],
+        "mean": -0.001030909618643457,
+        "sample_sd": 0.0012817495447506278
+      },
+      "recall_at_FPR01": {
+        "per_seed": [
+          -0.00019999999999997797,
+          0.0,
+          -0.00019999999999997797
+        ],
+        "mean": -0.00013333333333331865,
+        "sample_sd": 0.00011547005383791243
+      },
+      "SD14_AUROC": {
+        "per_seed": [
+          -3.9999999990047996e-07,
+          -3.1999999994258843e-07,
+          -1.4800000001091718e-06
+        ],
+        "mean": -7.333333333174134e-07,
+        "sample_sd": 6.478682994804976e-07
+      },
+      "BigGAN_AUROC": {
+        "per_seed": [
+          -8.239999999881675e-06,
+          -1.2799999999923983e-06,
+          -1.0199999999849219e-05
+        ],
+        "mean": -6.573333333241098e-06,
+        "sample_sd": 4.687742882521345e-06
+      }
+    }
+  }
+}

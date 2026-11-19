@@ -1,0 +1,18 @@
+[
+  {
+    "name": "core-4.46.3",
+    "path": "/mnt/ssd/data/cache/arin5201/reproduction/env-core",
+    "lock": "reproduction/envs/core.lock",
+    "lock_sha256": "e694ba063bce7dc4af2ce7f586f350fea245a48cab20109f183df1c6391ac0bf",
+    "smoke": "2.6.0+cu124 4.46.3 True",
+    "returncode": 0
+  },
+  {
+    "name": "iapl-4.46.3",
+    "path": "/mnt/ssd/data/cache/arin5201/reproduction/env-iapl",
+    "lock": "reproduction/envs/iapl.lock",
+    "lock_sha256": "e694ba063bce7dc4af2ce7f586f350fea245a48cab20109f183df1c6391ac0bf",
+    "smoke": "2.6.0+cu124 4.46.3 True",
+    "returncode": 0
+  }
+]

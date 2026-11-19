@@ -1,0 +1,53 @@
+{
+  "reason": "NumPy float32 scalar comparison downcast nextafter float64 FPR threshold; metric routine already cast score arrays to float64. CSV prediction columns regenerated from unchanged scores and thresholds using Python float64.",
+  "changes": [
+    {
+      "method": "frozen_B16_resize",
+      "corrected_prediction_cells": 1,
+      "previous_sha256": "72b685053b14d1e2083873f3ae545003ac4cf92efe81ea4084ebdb6e84bc1433",
+      "current_sha256": "52b86e9d195003f961b2b69cb7b751361900976bc7c896c613388a12c9b5b63d",
+      "scores_changed": false,
+      "thresholds_changed": false
+    },
+    {
+      "method": "frozen_B16_resize_jpeg",
+      "corrected_prediction_cells": 1,
+      "previous_sha256": "40e47fe1a2ea1f9c418bcf12e1a302ec8916053b5cdc72ec29ad72441bf912fd",
+      "current_sha256": "853d1b8d7ac27110e427cb0f8f274384d6515a44e3311daf79b83f0282339aeb",
+      "scores_changed": false,
+      "thresholds_changed": false
+    },
+    {
+      "method": "frozen_B32_resize",
+      "corrected_prediction_cells": 1,
+      "previous_sha256": "5f6e35238c45a1ecf5bfd947fe0ffbf1540d39c0bb098ffd25ba555f530e1b1d",
+      "current_sha256": "bb12b002dec9e252d84e29dd5393c855f010ad6ba64e427fddfa6e8d73a4941b",
+      "scores_changed": false,
+      "thresholds_changed": false
+    },
+    {
+      "method": "frozen_L14_resize",
+      "corrected_prediction_cells": 1,
+      "previous_sha256": "ca58e8f52fdef74740389b3ff5a989a7ab0c036186fef3d03879ee966199b798",
+      "current_sha256": "3d88c4a07db601b894b2263b9ffeeb14bdf8f3232f86a6ba70af78811cc2b848",
+      "scores_changed": false,
+      "thresholds_changed": false
+    },
+    {
+      "method": "frozen_B16_crop128",
+      "corrected_prediction_cells": 1,
+      "previous_sha256": "2324e306feef8bc9b67154d5686c0a3c19df4166bfa1984bad2a3a9b3c507eb3",
+      "current_sha256": "251f8f423ace8db1b8adecee29ce0404cb4add5643d531d89bfff1dcede46440",
+      "scores_changed": false,
+      "thresholds_changed": false
+    },
+    {
+      "method": "frozen_B16_crop128_jpeg",
+      "corrected_prediction_cells": 1,
+      "previous_sha256": "5b23a4c51623a7aabbba1c5735930c2ed724fda47a3b7e4c329a4655373dfc12",
+      "current_sha256": "4e0fba6dbbba5cf7953dd354244e7852e03128e4af42927adb9186e02a466c8d",
+      "scores_changed": false,
+      "thresholds_changed": false
+    }
+  ]
+}

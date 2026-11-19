@@ -1,0 +1,48 @@
+{
+  "schema_version": 2,
+  "data_root": "/data/genimage/standard_v1",
+  "seed": 42,
+  "seen_generators": [
+    "BigGAN",
+    "SD15"
+  ],
+  "unseen_generators": [
+    "ADM",
+    "GLIDE"
+  ],
+  "val_fraction": 0.2,
+  "unseen_per_generator": 1000,
+  "original_files": 20000,
+  "unique_files": 19999,
+  "duplicate_files": 1,
+  "unused_files": 5999,
+  "policy": "Seen source train -> train/val; source val -> seen_test. Unseen sources never used for fitting/tuning. Global real pool without replacement. Exact RGB-content deduplication; near-duplicates not detected.",
+  "counts": {
+    "train": {
+      "BigGAN/1": 1600,
+      "Real/0": 3200,
+      "SD15/1": 1600
+    },
+    "val": {
+      "BigGAN/1": 400,
+      "Real/0": 800,
+      "SD15/1": 400
+    },
+    "seen_test": {
+      "SD15/1": 500,
+      "Real/0": 1000,
+      "BigGAN/1": 500
+    },
+    "unseen_test": {
+      "ADM/1": 1000,
+      "Real/0": 2000,
+      "GLIDE/1": 1000
+    }
+  },
+  "manifest_sha256": {
+    "train": "d47fd88ca9c534d6b74f7f6e8590e4b74fd5eb0a1c8b7b3566f451c67a06b601",
+    "val": "16fe61d74e3a6d9b1dc6e65b0ff2b73a07149b69eea121f761bc6774bb785c17",
+    "seen_test": "6ca3ec8d6036f7dcac7385461ae77d103968a54925201f627122ba54f596598a",
+    "unseen_test": "31635f94b28cc7a9e2e7420211d60e0f277386ec90007a29bc5e5b82f4c8195c"
+  }
+}

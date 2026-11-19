@@ -1,0 +1,14 @@
+{
+  "all_identical": true,
+  "files": {
+    "results.json": true,
+    "paired_cluster_intervals.csv": true,
+    "per_seed_metrics.csv": true,
+    "seed_summary.csv": true,
+    "training.csv": true,
+    "paired_seed_deltas.csv": true,
+    "overall_summary.csv": true,
+    "verification.json": true,
+    "prediction_ledger.csv": true
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "status": "local_sources_traceable_with_disclosed_limits",
+  "historical_inventory_counts_before_retention": {
+    "BigGAN/train/ai": 161996,
+    "BigGAN/train/real": 162000,
+    "BigGAN/val/ai": 6000,
+    "BigGAN/val/real": 6000,
+    "SD15/train/ai": 166000,
+    "SD15/train/real": 153274,
+    "SD15/val/ai": 8000,
+    "SD15/val/real": 8000,
+    "SD14/train/ai": 161997,
+    "SD14/train/real": 162000,
+    "SD14/val/ai": 6000,
+    "SD14/val/real": 6000,
+    "ADM/train/ai": 161994,
+    "ADM/train/real": 157453,
+    "ADM/val/ai": 6000,
+    "ADM/val/real": 6000,
+    "GLIDE/train/ai": 161999,
+    "GLIDE/train/real": 162000,
+    "GLIDE/val/ai": 6000,
+    "GLIDE/val/real": 6000,
+    "VQDM/train/ai": 162000,
+    "VQDM/train/real": 162000,
+    "VQDM/val/ai": 6000,
+    "VQDM/val/real": 6000,
+    "Midjourney_subset/val/ai": 6000,
+    "Midjourney_subset/train/ai": 15549
+  },
+  "retained_inventory": "data_inventory.json",
+  "evidence": [
+    {
+      "path": "/mnt/ssd/data/logs/arin5201/reserve_20261114/complete.json",
+      "sha256": "d86160d2ecd37ade9594dddbcc11a05e1fcf96a5a2043566f8b922776e056a24",
+      "bytes": 441
+    },
+    {
+      "path": "/mnt/ssd/data/logs/arin5201/reserve_20261114/retained.csv",
+      "sha256": "50563972e750157fa6301689e0646cdfaa3491919b73e5565e44e975cec5d348",
+      "bytes": 127558938
+    },
+    {
+      "path": "/mnt/ssd/data/logs/arin5201/reserve_20261114/SD14_bad.json",
+      "sha256": "5c5d3a47036d5bf76a03e75859e7990504084ac057e571033257317ea9eca5cf",
+      "bytes": 848
+    },
+    {
+      "path": "/mnt/ssd/data/logs/arin5201/reserve_20261114/ADM_bad.json",
+      "sha256": "2bbce4b4020b46d51c69f329facaa47a377672a27f18835a94cf183764ebf2d6",
+      "bytes": 1634
+    },
+    {
+      "path": "/mnt/ssd/data/logs/arin5201/reserve_20261114/ADM_archives_removed.json",
+      "sha256": "cf1bdd73ce1e72e2d967c166f3a409b9f255c04411c751e6215fd97919caab48",
+      "bytes": 1700
+    },
+    {
+      "path": "/mnt/ssd/data/logs/arin5201/downloads_v3/sd14_mirror_manifest.json",
+      "sha256": "12bad91917a2f74efc35c0b62196f532d374f5998b16507f4afb70f99586ed33",
+      "bytes": 18767
+    },
+    {
+      "path": "/mnt/ssd/data/logs/arin5201/downloads_v3/sd14_extracted_archive_index.json",
+      "sha256": "a7b52d06f984ccf694dd03319130dfe6db79f8fd37d7122fa7cb1f92dd699932",
+      "bytes": 33681259
+    },
+    {
+      "path": "/mnt/ssd/data/logs/arin5201/reserve_finalize.log",
+      "sha256": "120f9849a9f54260f3b250ab08f25f7c2589419eacc88854b565351eee1f430a",
+      "bytes": 3352
+    },
+    {
+      "path": "/mnt/ssd/code/arin5201/scripts/finalize_dataset_reserve.py",
+      "sha256": "1b3a877249eb4f74855e4f3acc47e47fb09f5e97e804ca9fe09e32da6402181b",
+      "bytes": 6143
+    }
+  ],
+  "SD14": {
+    "path": "/mnt/ssd/data/datasets/GenImage/official_v3/SD14/imagenet_ai_0419_sdv4",
+    "mirror_revision": "71c983e6262684bc2c6b6af99582e8f568c259a5",
+    "quarantined": 3,
+    "provenance": "Mirror manifest, archive member index, extraction/decoding and retention receipts retained; no new full archive validation claimed."
+  },
+  "ADM": {
+    "path": "/mnt/ssd/data/datasets/GenImage/official_v3/ADM/imagenet_ai_0508_adm",
+    "quarantined": 6,
+    "provenance": "LAN archive transfer, canonical layout, CRC-checked zip extraction and decode/retention records. Original volumes already removed before this task; no surviving external archive SHA256 verification receipt was found. Local selected file SHA256 is frozen; do not claim external byte-for-byte authenticity."
+  },
+  "auxiliary": {
+    "RAISE": {
+      "status": "not_found_in_checked_roots",
+      "checked_roots": [
+        "/mnt/ssd/data/datasets",
+        "/mnt/ssd/data/downloads"
+      ],
+      "search": "directory names, maxdepth 3; not a whole-machine absence proof",
+      "required_for": "D3j/D3c training"
+    },
+    "Mirage": {
+      "status": "not_found_in_checked_roots",
+      "checked_roots": [
+        "/mnt/ssd/data/datasets",
+        "/mnt/ssd/data/downloads"
+      ],
+      "search": "directory names, maxdepth 3; not a whole-machine absence proof",
+      "required_for": "original out-of-domain evaluation"
+    },
+    "EvalGEN": {
+      "status": "not_found_in_checked_roots",
+      "checked_roots": [
+        "/mnt/ssd/data/datasets",
+        "/mnt/ssd/data/downloads"
+      ],
+      "search": "directory names, maxdepth 3; not a whole-machine absence proof",
+      "required_for": "original evaluation"
+    },
+    "Wukong": {
+      "status": "not_found_in_checked_roots",
+      "checked_roots": [
+        "/mnt/ssd/data/datasets",
+        "/mnt/ssd/data/downloads"
+      ],
+      "search": "directory names, maxdepth 3; not a whole-machine absence proof",
+      "required_for": "original eight-source GenImage mean"
+    }
+  },
+  "legacy": "v2 uses standard_v1; v3 uses official_v3. No version directories merged. All previously used v2/v3/supplement manifests excluded from new selections.",
+  "licenses": "GenImage underlying real/generated source terms are not replaced by code licenses. This task records local provenance; no redistribution or license grant is implied."
+}

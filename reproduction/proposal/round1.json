@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "seed": 42,
+  "epochs": 5,
+  "batch_size": 16,
+  "methods": [
+    "frozen_L14_resize",
+    "effort",
+    "effort_degradation",
+    "resnet50",
+    "deit_s",
+    "swin_t",
+    "cnnspot"
+  ],
+  "train_manifest": "/mnt/ssd/code/arin5201/reproduction/manifests/v1_20261114/train_S1.csv",
+  "validation_manifest": "/mnt/ssd/code/arin5201/reproduction/manifests/v1_20261114/val.csv",
+  "train_sha256": "66b4403c98fff0d32f342c9f15d50d1ff61f8c4fcece2b0a1d54248b9ee42580",
+  "validation_sha256": "bdb4e4435565eb916d229bbe22e472176d6b880a45ade38e98a245e3ef9266ce",
+  "preprocess_version": "proposal_minshort224_bicubic_crop_v1",
+  "final_test_access": false,
+  "checkpoint_selection": "maximum clean validation AUROC; earlier epoch on exact tie",
+  "extension_policy": {
+    "automatic": false,
+    "maximum_epochs": 15,
+    "review_epochs": [
+      5,
+      10,
+      15
+    ],
+    "effort_pair_same_budget": true,
+    "rule": "Review full curves; persistent validation improvement can trigger registered extension, never test scores"
+  },
+  "augmentation": {
+    "clean": 0.1,
+    "jpeg": {
+      "probability": 0.3,
+      "quality": [
+        90,
+        70,
+        50
+      ],
+      "subsampling": 2
+    },
+    "blur": {
+      "probability": 0.3,
+      "sigma": [
+        0.5,
+        1,
+        2
+      ]
+    },
+    "downsample": {
+      "probability": 0.3,
+      "scale": [
+        0.75,
+        0.5,
+        0.25
+      ],
+      "interpolation": "bicubic"
+    },
+    "order": "degradation then independent flip/crop"
+  },
+  "output_root": "/mnt/ssd/data/logs/arin5201/reproduction/proposal_round1_20261115",
+  "checkpoint_root": "/mnt/ssd/data/ckpt/arin5201/reproduction/proposal_round1_20261115",
+  "cache_root": "/mnt/ssd/data/cache/arin5201/reproduction/proposal_round1_20261115",
+  "implementation_sha256": {
+    "/mnt/ssd/code/arin5201/reproduction/proposal/run.py": "7cf6ac2b28f3c3fdff6a111b80ed80367b9259f1f0883782418b30823b36e1b2",
+    "/mnt/ssd/code/arin5201/reproduction/proposal/models.py": "2a194c7bc652ff9666f6c1e10e06983cb3ef8a7eb8abf451359d09afd27ce092",
+    "/mnt/ssd/code/arin5201/reproduction/p1/models.py": "c1eba5460a642abc0653121d49f1556673991a55b15c5122396d0c3e4fbc676a",
+    "/mnt/ssd/code/arin5201/reproduction/p1/models_extended.py": "934c2ce3c7e00e7a7197ba6d737d216427ea0e6ab1c7b4f3bd99d540f406a9d5",
+    "/mnt/ssd/code/arin5201/reproduction/p1/run_method.py": "b2db32fec8cf02e1ab22cf3cb20ca30a39494fe1e2bc78555ca87d998020b2e6",
+    "/mnt/ssd/code/arin5201/reproduction/weights.lock.json": "9b29565fc454bd3da6fb14c9bf0a7944e0fafdcfe2596636fcdc48bd297d3932",
+    "/mnt/ssd/code/arin5201/reproduction/p1/extra_weights.lock.json": "cf91768f8bffa4d993adea7ee04039271797cba11ee4304afaff90ad212cb44e"
+  }
+}
